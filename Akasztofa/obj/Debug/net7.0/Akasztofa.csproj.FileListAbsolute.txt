@@ -1,0 +1,29 @@
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.exe
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.deps.json
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.runtimeconfig.json
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.dll
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.pdb
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.AssemblyInfoInputs.cache
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.AssemblyInfo.cs
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.csproj.CoreCompileInputs.cache
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.dll
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\refint\Akasztofa.dll
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.pdb
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.genruntimeconfig.cache
+C:\Users\ROXFTL\source\repos\Akasztofa\Akasztofa\obj\Debug\net7.0\ref\Akasztofa.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.exe
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.deps.json
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.runtimeconfig.json
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\bin\Debug\net7.0\Akasztofa.pdb
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.csproj.AssemblyReference.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.AssemblyInfoInputs.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.AssemblyInfo.cs
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.csproj.CoreCompileInputs.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\refint\Akasztofa.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.pdb
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\Akasztofa.genruntimeconfig.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\Akasztofa\obj\Debug\net7.0\ref\Akasztofa.dll
