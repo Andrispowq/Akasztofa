@@ -209,6 +209,7 @@ namespace Akasztofa
 
             Console.ResetColor();
 
+            playerData.AddWord(word, bad_guesses, guesses);
             playerData.AddHighscore((44 - bad_guesses) * 100);
             playerData.FlushJSON();
         }
