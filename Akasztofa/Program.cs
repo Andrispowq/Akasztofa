@@ -27,8 +27,6 @@ namespace Akasztofa
     internal class Program
     {
         const string ValidInputs = "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz";
-        const string password_hash = "5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8";
-        const string encrypted_key = "SFEry9jTWTwe+amZdf94sGlhFi0C8DBZ6+iOtlDn/IXrpY7YaS+ei9vz7shFTQqoZ7C2f0KGxWOPgdzyduYu+p8q4m7pU5IKmJA9hTLNI70=";
 
         static string GetWord()
         {
@@ -79,24 +77,26 @@ namespace Akasztofa
 
             string decrypted_key = "";
 
-            string password_hash = database.GetPasswordHashFromUsername(username);
-            string password_as_key = "";
-            if(password_hash == "")
+            string password_hash2 = database.GetPasswordHashFromUsername(username);
+            if(password_hash2 == "")
             {
                 Console.WriteLine("Enter password for new profile: ");
-                password_as_key = Console.ReadLine()!;
-                password_hash = Crypto.GetHashString(password_as_key);
+                string password = Console.ReadLine()!;
+                string password_hash = Crypto.GetHashString(password);
+                password_hash2 = Crypto.GetHashString(password_hash);
 
-                Random random = new Random();
+                long currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                int seed = (int)(currentTimeMillis % int.MaxValue);
+                Random random = new Random(seed);
                 byte[] key = new byte[128];
                 for(int i = 0; i < key.Length; i++)
                 {
                     key[i] = (byte)random.Next(256);
                 }
 
-                decrypted_key = key.ToString();
-                string encrypted_key = Crypto.Encrypt(decrypted_key, password_as_key);
-                database.AddUser(username, password_hash, encrypted_key);
+                decrypted_key = key.ToString()!;
+                string encrypted_key = Crypto.Encrypt(decrypted_key, password_hash);
+                database.AddUser(username, password_hash2, encrypted_key);
                 database.FlushJSON();
             }
             else
@@ -107,14 +107,15 @@ namespace Akasztofa
                     Console.WriteLine("Please enter your password: ");
                     string pass_try = Console.ReadLine()!;
                     string hash = Crypto.GetHashString(pass_try);
+                    string hash2 = Crypto.GetHashString(hash);
 
-                    if (hash != password_hash)
+                    if (hash2 != password_hash2)
                     {
                         Console.WriteLine("Password doesn't match! Try again ({0} tries left)!", (3 - i - 1));
                     }
                     else
                     {
-                        decrypted_key = Crypto.Decrypt(database.GetEncryptedKeyHashFromUsername(username), pass_try);
+                        decrypted_key = Crypto.Decrypt(database.GetEncryptedKeyHashFromUsername(username), hash);
                         success = true;
                     }
                 }
@@ -145,7 +146,7 @@ namespace Akasztofa
             {
                 Console.SetCursorPosition(Console.BufferWidth - 15, 0);
                 Console.Write("Bad guesses: {0}", bad_guesses);
-                Console.SetCursorPosition(Console.BufferWidth - 15, 1);
+                Console.SetCursorPosition(Console.BufferWidth - 18, 1);
                 Console.Write("High score: {0}", playerData.GetHighscore());
                 Console.SetCursorPosition(0, 0);
 
@@ -189,10 +190,16 @@ namespace Akasztofa
             }
             while (!guessed);
 
+            playerData.AddWord(word, bad_guesses, guesses);
+            playerData.AddHighscore((44 - bad_guesses) * 10 + word.Length);
+            playerData.FlushJSON();
+
             Console.ForegroundColor = ConsoleColor.Green;
 
             Console.SetCursorPosition(Console.BufferWidth - 15, 0);
             Console.Write("Bad guesses: {0}", bad_guesses);
+            Console.SetCursorPosition(Console.BufferWidth - 18, 1);
+            Console.Write("High score: {0}", playerData.GetHighscore());
             Console.SetCursorPosition(0, 0);
 
             Draw(word, guesses);
@@ -208,10 +215,6 @@ namespace Akasztofa
             Console.WriteLine("Guessed the word with {0} bad guesses.", bad_guesses);
 
             Console.ResetColor();
-
-            playerData.AddWord(word, bad_guesses, guesses);
-            playerData.AddHighscore((44 - bad_guesses) * 100);
-            playerData.FlushJSON();
         }
     }
 }
