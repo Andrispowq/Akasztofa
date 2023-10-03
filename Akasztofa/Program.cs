@@ -89,12 +89,14 @@ namespace Akasztofa
                 int seed = (int)(currentTimeMillis % int.MaxValue);
                 Random random = new Random(seed);
                 byte[] key = new byte[128];
+                string key_string = "";
                 for(int i = 0; i < key.Length; i++)
                 {
                     key[i] = (byte)random.Next(256);
+                    key_string += key[i].ToString("X2");
                 }
 
-                decrypted_key = key.ToString()!;
+                decrypted_key = key_string;
                 string encrypted_key = Crypto.Encrypt(decrypted_key, password_hash);
                 database.AddUser(username, password_hash2, encrypted_key);
                 database.FlushJSON();
@@ -146,7 +148,7 @@ namespace Akasztofa
             {
                 Console.SetCursorPosition(Console.BufferWidth - 15, 0);
                 Console.Write("Bad guesses: {0}", bad_guesses);
-                Console.SetCursorPosition(Console.BufferWidth - 18, 1);
+                Console.SetCursorPosition(Console.BufferWidth - 19, 1);
                 Console.Write("High score: {0}", playerData.GetHighscore());
                 Console.SetCursorPosition(0, 0);
 
@@ -198,7 +200,7 @@ namespace Akasztofa
 
             Console.SetCursorPosition(Console.BufferWidth - 15, 0);
             Console.Write("Bad guesses: {0}", bad_guesses);
-            Console.SetCursorPosition(Console.BufferWidth - 18, 1);
+            Console.SetCursorPosition(Console.BufferWidth - 19, 1);
             Console.Write("High score: {0}", playerData.GetHighscore());
             Console.SetCursorPosition(0, 0);
 
