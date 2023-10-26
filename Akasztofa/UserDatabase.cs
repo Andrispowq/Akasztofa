@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.VisualBasic.FileIO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,56 @@ namespace Akasztofa
                 string json = File.ReadAllText(fileName);
                 data = JsonSerializer.Deserialize<List<JSONData>>(json)!;
             }
+
+            if (!FileSystem.DirectoryExists("players"))
+            {
+                FileSystem.CreateDirectory("players");
+            }
+        }
+
+        public User? LoginMethod()
+        {
+            Console.Write("Please enter your username: ");
+            string username = Console.ReadLine()!;
+
+            User? user = null;
+            if (UserExists(username))
+            {
+                bool success = false;
+                for (int i = 0; i < 3 && !success; i++)
+                {
+                    Console.Write("Please enter your password: ");
+                    string pass_try = SecurePassword(GetUserID(username), Utils.GetPassword());
+                    string hash = Crypto.GetHashString(pass_try);
+                    if (!TryLogin(username, hash, out user))
+                    {
+                        Console.WriteLine("Password doesn't match! Try again ({0} tries left)!", (3 - i - 1));
+                    }
+                    else
+                    {
+                        success = true;
+                    }
+                }
+
+                if (!success)
+                {
+                    Console.WriteLine("Your password didn't match!");
+                    return null;
+                }
+            }
+            else
+            {
+                Console.Write("Enter password for new profile: ");
+                string password = Utils.GetPassword();
+                if (!CreateNewUser(username, password, out user))
+                {
+                    Console.WriteLine("ERROR: user creation failed (maybe it already exists?)!\n");
+                }
+
+                SaveData();
+            }
+
+            return user;
         }
 
         public void SaveData()
