@@ -9,10 +9,11 @@ namespace Akasztofa
 {
     internal class UserDatabase
     {
-        private class JSONData
+        public class JSONData
         {
+            public string user_id { get; set; }
             public string username { get; set; }
-            public string password_hash { get; set; }
+            public string password_hash2 { get; set; }
             public string encrypted_key { get; set; }
         }
 
@@ -30,37 +31,94 @@ namespace Akasztofa
             }
         }
 
-        public void FlushJSON()
+        public void SaveData()
         {
             string json = JsonSerializer.Serialize(data);
             File.WriteAllText(fileName, json);
         }
 
-        public void AddUser(string username, string password_hash, string encrypted_key)
+        public bool UserExists(string username)
         {
-            data.Add(new JSONData { username = username, password_hash = password_hash, encrypted_key = encrypted_key });
-        }
-
-        public string GetPasswordHashFromUsername(string username)
-        {
-            foreach(JSONData dat in data)
+            foreach (var usr in data)
             {
-                if(dat.username == username)
+                if (usr.username == username)
                 {
-                    return dat.password_hash;
+                    return true;
                 }
             }
 
-            return "";
+            return false;
         }
 
-        public string GetEncryptedKeyHashFromUsername(string username)
+        public bool TryLogin(string username, string password_hash1, out User? user)
         {
-            foreach (JSONData dat in data)
+            bool found = false;
+            JSONData dat = null;
+            foreach (var usr in data)
             {
-                if (dat.username == username)
+                if(usr.username == username)
                 {
-                    return dat.encrypted_key;
+                    found = true;
+                    dat = usr;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                user = null;
+                return false;
+            }
+
+            string hash2 = Crypto.GetHashString(password_hash1);
+
+            if(dat.password_hash2 == hash2)
+            {
+                user = new User(dat, password_hash1);
+                return true;
+            }
+            else
+            {
+                user = null;
+                return false;
+            }
+        }
+
+        public bool CreateNewUser(string username, string password, out User? user)
+        {
+            if(UserExists(username))
+            {
+                user = null;
+                return false;
+            }
+
+            string id = User.GenerateID(username);
+            string secure_pass = SecurePassword(id, password);
+            string password_hash1 = Crypto.GetHashString(secure_pass);
+
+            user = new User(id, username, password_hash1);
+
+            JSONData new_data = new JSONData();
+            new_data.user_id = user.ID;
+            new_data.username = user.username;
+            new_data.password_hash2 = user.password_hash2;
+            new_data.encrypted_key = user.encryption_key;
+            data.Add(new_data);
+            return true;
+        }
+
+        public string SecurePassword(string userID, string password)
+        {
+            return password + userID;
+        }
+
+        public string GetUserID(string username)
+        {
+            foreach(var user in data)
+            {
+                if(user.username == username)
+                {
+                    return user.user_id;
                 }
             }
 

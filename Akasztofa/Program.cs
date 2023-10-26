@@ -21,12 +21,15 @@ using System.Numerics;
 
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 
 namespace Akasztofa
 {
     internal class Program
     {
-        const string ValidInputs = "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz";
+        const string ValidInputs = "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz-0123456789/";
 
         static string GetWord()
         {
@@ -64,77 +67,92 @@ namespace Akasztofa
             return complete;
         }
 
+        static string GetPassword()
+        {
+            string pass = "";
+            ConsoleKey key;
+            do
+            {
+                var keyInfo = Console.ReadKey(intercept: true);
+                key = keyInfo.Key;
+
+                if (key == ConsoleKey.Backspace && pass.Length > 0)
+                {
+                    Console.Write("\b \b");
+                    pass = pass[0..^1];
+                }
+                else if (!char.IsControl(keyInfo.KeyChar))
+                {
+                    pass += keyInfo.KeyChar;
+                }
+            } while (key != ConsoleKey.Enter);
+
+            return pass;
+        }
+
         static bool ValidInput(char c)
         {
             return ValidInputs.Contains(c);
         }
+        private struct Format
+        {
+            public bool result { get; set; }
+            public string? username { get; set; }
+        }
 
         static void Main(string[] args)
         {
+            DatabaseConnection dbc = new DatabaseConnection("http://andris.cegkikoto.hu");
+            string userexists = dbc.GetRequest("?username=test&password=testpwd");
+
+            Format res = JsonSerializer.Deserialize<Format>(userexists);
+            Console.WriteLine("Username {0} exists: {1}", res.username, res.result);
+
             UserDatabase database = new UserDatabase("user_database.json");
-            Console.WriteLine("Please enter your username: ");
+            Console.Write("Please enter your username: ");
             string username = Console.ReadLine()!;
 
-            string decrypted_key = "";
-
-            string password_hash2 = database.GetPasswordHashFromUsername(username);
-            if(password_hash2 == "")
-            {
-                Console.WriteLine("Enter password for new profile: ");
-                string password = Console.ReadLine()!;
-                string password_hash = Crypto.GetHashString(password);
-                password_hash2 = Crypto.GetHashString(password_hash);
-
-                long currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                int seed = (int)(currentTimeMillis % int.MaxValue);
-                Random random = new Random(seed);
-                byte[] key = new byte[128];
-                string key_string = "";
-                for(int i = 0; i < key.Length; i++)
-                {
-                    key[i] = (byte)random.Next(256);
-                    key_string += key[i].ToString("X2");
-                }
-
-                decrypted_key = key_string;
-                string encrypted_key = Crypto.Encrypt(decrypted_key, password_hash);
-                database.AddUser(username, password_hash2, encrypted_key);
-                database.FlushJSON();
-            }
-            else
+            User? user = null;
+            if(database.UserExists(username))
             {
                 bool success = false;
                 for (int i = 0; i < 3 && !success; i++)
                 {
-                    Console.WriteLine("Please enter your password: ");
-                    string pass_try = Console.ReadLine()!;
+                    Console.Write("Please enter your password: ");
+                    string pass_try = database.SecurePassword(database.GetUserID(username), GetPassword());
                     string hash = Crypto.GetHashString(pass_try);
-                    string hash2 = Crypto.GetHashString(hash);
-
-                    if (hash2 != password_hash2)
+                    if(!database.TryLogin(username, hash, out user))
                     {
                         Console.WriteLine("Password doesn't match! Try again ({0} tries left)!", (3 - i - 1));
                     }
                     else
                     {
-                        decrypted_key = Crypto.Decrypt(database.GetEncryptedKeyHashFromUsername(username), hash);
                         success = true;
                     }
                 }
 
-                if(!success)
+                if (!success)
                 {
                     Console.WriteLine("Your password didn't match!");
                     return;
                 }
+            }
+            else
+            {
+                Console.Write("Enter password for new profile: ");
+                string password = GetPassword();                
+                if(!database.CreateNewUser(username, password, out user))
+                {
+                    Console.WriteLine("ERROR: user creation failed (maybe it already exists?)!\n");
+                }
+
+                database.SaveData();
             }
 
             if (!FileSystem.DirectoryExists("players"))
             {
                 FileSystem.CreateDirectory("players");
             }
-
-            PlayerData playerData = new PlayerData("players/" + username, decrypted_key);
 
             Console.Clear();
             Console.SetCursorPosition(0, 0);
@@ -149,7 +167,7 @@ namespace Akasztofa
                 Console.SetCursorPosition(Console.BufferWidth - 15, 0);
                 Console.Write("Bad guesses: {0}", bad_guesses);
                 Console.SetCursorPosition(Console.BufferWidth - 19, 1);
-                Console.Write("High score: {0}", playerData.GetHighscore());
+                Console.Write("High score: {0}", user.GetHighscore());
                 Console.SetCursorPosition(0, 0);
 
                 Draw(word, guesses);
@@ -192,16 +210,16 @@ namespace Akasztofa
             }
             while (!guessed);
 
-            playerData.AddWord(word, bad_guesses, guesses);
-            playerData.AddHighscore((44 - bad_guesses) * 10 + word.Length);
-            playerData.FlushJSON();
+            user.AddRecord(word, bad_guesses, guesses);
+            user.AddHighscore((44 - bad_guesses) * 10 + word.Length);
+            user.SaveData();
 
             Console.ForegroundColor = ConsoleColor.Green;
 
             Console.SetCursorPosition(Console.BufferWidth - 15, 0);
             Console.Write("Bad guesses: {0}", bad_guesses);
-            Console.SetCursorPosition(Console.BufferWidth - 19, 1);
-            Console.Write("High score: {0}", playerData.GetHighscore());
+            Console.SetCursorPosition(Console.BufferWidth - 19 , 1);
+            Console.Write("High score: {0}", user.GetHighscore());
             Console.SetCursorPosition(0, 0);
 
             Draw(word, guesses);
