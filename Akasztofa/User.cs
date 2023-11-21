@@ -41,7 +41,8 @@ namespace Akasztofa
         //Logging an existing user in
         public User(DatabaseConnection.UserLoginRequest loginInfo, string username, string password)
         {
-            string hash1 = Crypto.GetHashString(password);
+            string secure_pass = SecurePassword(loginInfo.userID, password);
+            string hash1 = Crypto.GetHashString(secure_pass);
             string hash2 = Crypto.GetHashString(hash1);
 
             this.ID = loginInfo.userID;
@@ -86,8 +87,7 @@ namespace Akasztofa
                     {
                         if (login.result == true)
                         {
-                            string secure_pass = User.SecurePassword(login.userID, pass_try);
-                            return new User(login, username, secure_pass);
+                            return new User(login, username, pass_try);
                         }
                     }
 
@@ -110,8 +110,7 @@ namespace Akasztofa
                         login.key = create.key;
                         login.data = create.data;
 
-                        string secure_pass = User.SecurePassword(create.userID, password);
-                        return new User(login, username, secure_pass);
+                        return new User(login, username, password);
                     }
                 }
             }
