@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,21 +9,43 @@ namespace Akasztofa
 {
     internal class Game
     {
-        private const string ValidInputs = "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz-0123456789/";
-        private string[] words_array = null;
+        private const string ValidInputs = "!&'*,./0123456789:;<>?\\abcdefghijklmnopqrstuvwxyz~­áäéëíóöúüőťű";
+        private string[]? words_array = null;
 
-        private User user;
+        private static string DatabaseAddress = "localhost";
+        private static int DatabasePort = 6969;
 
-        public Game(User user)
-        { 
-            this.user = user;
+        private DatabaseConnection dbc;
+        private User? user = null;
+
+        public Game()
+        {
+            dbc = new DatabaseConnection(DatabaseAddress, DatabasePort);
+        }
+
+        public bool Init()
+        {
+            user = User.LoginMethod(dbc);
+            return user != null;
+        }
+
+        public void Shutdown()
+        {
+            string data = user!.GetEncryptedData();
+            DatabaseConnection.UserUpdateRequest? update = dbc.UpdateUser(user.username, user.password, data);
         }
 
         public void Run()
         {
+            if(!Init())
+            {
+                Console.WriteLine("ERROR: couldn't init the user!");
+                return;
+            }
+
             bool keep_running = true;
 
-            while(keep_running)
+            while(keep_running && (user != null))
             {
                 PlayRound();
 
@@ -33,6 +56,8 @@ namespace Akasztofa
                     keep_running = false;
                 }
             }
+
+            Shutdown();
         }
 
         void PlayRound()
@@ -41,7 +66,9 @@ namespace Akasztofa
             Console.SetCursorPosition(0, 0);
 
             string word = GetWord();
-            List<char> guesses = new();
+            List<char> guesses = new List<char>();
+            guesses.Add(' ');
+            guesses.Add('-');
 
             int bad_guesses = 0;
             bool guessed = false;
@@ -50,7 +77,7 @@ namespace Akasztofa
                 Console.SetCursorPosition(Console.BufferWidth - 15, 0);
                 Console.Write("Bad guesses: {0}", bad_guesses);
                 Console.SetCursorPosition(Console.BufferWidth - 19, 1);
-                Console.Write("High score: {0}", user.GetHighscore());
+                Console.Write("High score: {0}", user!.GetHighscore());
                 Console.SetCursorPosition(0, 0);
 
                 Draw(word, guesses);
@@ -95,7 +122,6 @@ namespace Akasztofa
 
             user.AddRecord(word, bad_guesses, guesses);
             user.AddHighscore((44 - bad_guesses) * 10 + word.Length);
-            user.SaveData();
 
             Console.ForegroundColor = ConsoleColor.Green;
 

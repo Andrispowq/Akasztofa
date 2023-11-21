@@ -25,23 +25,23 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
+/**
+ * SERVER Operations: 
+ * 
+ * -    user exists query: GET ?type=exists&username=_________; returns: result: bool
+ * -    user creation query: POST ?type=create&username=_________&password=_________; returns: result: bool, id: string, key: string, PlayerData: encrypted string
+ * -    user login query: GET ?type=login&username=_________&password=_________; returns: result: bool, id: string, key: string, PlayerData: encrypted string
+ * -    user update query: POST ?type=update&username=_________&password=_________&data=_________; returns: result: bool
+ * -    user logout query: POST ?type=logout&username=_________&password=_________; returns: result: bool
+ * */
+
 namespace Akasztofa
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
-            /*DatabaseConnection dbc = new DatabaseConnection("http://andris.cegkikoto.hu");
-            string userexists = dbc.GetRequest("?username=test&password=testpwd");
-
-            Format res = JsonSerializer.Deserialize<Format>(userexists);
-            Console.WriteLine("Username {0} exists: {1}", res.username, res.result);*/
-
-            UserDatabase database = new UserDatabase("user_database.json");
-            User user = database.LoginMethod()!;
-
-            Game game = new Game(user);
+            Game game = new Game();
             game.Run();
         }
     }

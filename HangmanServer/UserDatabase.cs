@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using HangmanServer;
 
 namespace Akasztofa
 {
@@ -12,10 +13,10 @@ namespace Akasztofa
     {
         public class JSONData
         {
-            public string user_id { get; set; }
-            public string username { get; set; }
-            public string password_hash2 { get; set; }
-            public string encrypted_key { get; set; }
+            public string user_id { get; set; } = string.Empty;
+            public string username { get; set; } = string.Empty;
+            public string password_hash2 { get; set; } = string.Empty;
+            public string encrypted_key { get; set; } = string.Empty;
         }
 
         private List<JSONData> data = new List<JSONData>();
@@ -31,55 +32,11 @@ namespace Akasztofa
                 data = JsonSerializer.Deserialize<List<JSONData>>(json)!;
             }
 
-            if (!FileSystem.DirectoryExists("players"))
+            string path = Server.WebServerPath + "/players";
+            if (!FileSystem.DirectoryExists(path))
             {
-                FileSystem.CreateDirectory("players");
+                FileSystem.CreateDirectory(path);
             }
-        }
-
-        public User? LoginMethod()
-        {
-            Console.Write("Please enter your username: ");
-            string username = Console.ReadLine()!;
-
-            User? user = null;
-            if (UserExists(username))
-            {
-                bool success = false;
-                for (int i = 0; i < 3 && !success; i++)
-                {
-                    Console.Write("Please enter your password: ");
-                    string pass_try = SecurePassword(GetUserID(username), Utils.GetPassword());
-                    string hash = Crypto.GetHashString(pass_try);
-                    if (!TryLogin(username, hash, out user))
-                    {
-                        Console.WriteLine("Password doesn't match! Try again ({0} tries left)!", (3 - i - 1));
-                    }
-                    else
-                    {
-                        success = true;
-                    }
-                }
-
-                if (!success)
-                {
-                    Console.WriteLine("Your password didn't match!");
-                    return null;
-                }
-            }
-            else
-            {
-                Console.Write("Enter password for new profile: ");
-                string password = Utils.GetPassword();
-                if (!CreateNewUser(username, password, out user))
-                {
-                    Console.WriteLine("ERROR: user creation failed (maybe it already exists?)!\n");
-                }
-
-                SaveData();
-            }
-
-            return user;
         }
 
         public void SaveData()
@@ -104,7 +61,7 @@ namespace Akasztofa
         public bool TryLogin(string username, string password_hash1, out User? user)
         {
             bool found = false;
-            JSONData dat = null;
+            JSONData dat = new();
             foreach (var usr in data)
             {
                 if(usr.username == username)
@@ -155,6 +112,8 @@ namespace Akasztofa
             new_data.password_hash2 = user.password_hash2;
             new_data.encrypted_key = user.encryption_key;
             data.Add(new_data);
+            SaveData();
+
             return true;
         }
 

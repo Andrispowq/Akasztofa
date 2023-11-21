@@ -17,16 +17,16 @@ namespace Akasztofa
         public const int ID_length = 15;
         private class PreviousWord
         {
-            public string word { get; set; }
+            public string word { get; set; } = string.Empty;
             public int bad_tries { get; set; }
-            public List<char> guesses { get; set; }
+            public List<char> guesses { get; set; } = new();
         }
 
         private class PlayerDataInternal
         {
-            public string username { get; set; }
+            public string username { get; set; } = string.Empty;
             public int highscore { get; set; }
-            public List<PreviousWord> words { get; set; }
+            public List<PreviousWord> words { get; set; } = new();
         }
 
         public string ID { get; }
@@ -34,24 +34,27 @@ namespace Akasztofa
         public string password_hash2 { get; set; }
         public string encryption_key { get; set; }
 
+        public string password = "";
         private string decrypted_key = "";
         private PlayerDataInternal data = new();
 
         //Logging an existing user in
-        public User(UserDatabase.JSONData json, string password_hash1)
+        public User(DatabaseConnection.UserLoginRequest loginInfo, string username, string password)
         {
-            this.username = json.username;
-            this.ID = json.user_id;
-            this.password_hash2 = json.password_hash2;
-            this.encryption_key = json.encrypted_key;
-            this.decrypted_key = Crypto.Decrypt(json.encrypted_key, password_hash1, ID);
+            string hash1 = Crypto.GetHashString(password);
+            string hash2 = Crypto.GetHashString(hash1);
 
-            string filepath = "players/" + username;
-            if (File.Exists(filepath))
+            this.ID = loginInfo.userID;
+            this.username = username;
+            this.password = password;
+            this.password_hash2 = hash2;
+            this.encryption_key = loginInfo.key;
+            this.decrypted_key = Crypto.Decrypt(loginInfo.key, hash1, ID);
+
+            if (loginInfo.data != "")
             {
-                string contents = File.ReadAllText(filepath);
-                string decrypted = Crypto.Decrypt(contents, decrypted_key, ID);   
-                data = JsonSerializer.Deserialize<PlayerDataInternal>(decrypted);
+                string decrypted = Crypto.Decrypt(loginInfo.data, decrypted_key, ID);
+                data = JsonSerializer.Deserialize<PlayerDataInternal>(decrypted)!;
             }
             else
             {
@@ -61,61 +64,70 @@ namespace Akasztofa
             }
         }
 
-        //
-        public User(string ID, string username, string password_hash1)
+        public static User? LoginMethod(DatabaseConnection dbc)
         {
-            this.ID = ID;
-            this.username = username;
-
-            GenerateUserIdentification(password_hash1);
-                        
-            data.username = username;
-            data.highscore = 0;
-            data.words = new();
-        }
-
-        public void SaveData()
-        {
-            string contents = JsonSerializer.Serialize(data);
-            string encrypted = Crypto.Encrypt(contents, decrypted_key, ID);
-            File.WriteAllText("players/" + username, encrypted);
-        }
-
-        public static string GenerateID(string username)
-        {
-            string id = "";
-
-            Random random = new Random((int)DateTimeOffset.UtcNow.ToUnixTimeSeconds() ^ username.GetHashCode());
-            for (int i = 0; i < ID_length; i++)
+            Console.Write("Please enter you username: ");
+            string username = Console.ReadLine()!;
+            DatabaseConnection.UserExistsRequest? exists = dbc.UserExists(username);
+            if(exists == null)
             {
-                id += random.Next(256).ToString("X2");
+                return null;
+            }
 
-                if ((((i + 1) % 5) == 0) && (i != ID_length - 1))
+            if (exists.result)
+            {
+                for (int i = 0; i < 3; i++)
                 {
-                    id += '-';
+                    Console.Write("Please enter your password: ");
+                    string pass_try = Utils.GetPassword();
+
+                    DatabaseConnection.UserLoginRequest? login = dbc.LoginUser(username, pass_try);
+                    if (login != null)
+                    {
+                        if (login.result == true)
+                        {
+                            string secure_pass = User.SecurePassword(login.userID, pass_try);
+                            return new User(login, username, secure_pass);
+                        }
+                    }
+
+                    Console.WriteLine("Password did not match! ({0} tries left)", 3 - i);
+                }
+            }
+            else
+            {
+                Console.Write("Enter password for new profile: ");
+                string password = Utils.GetPassword();
+
+                DatabaseConnection.UserCreationRequest? create = dbc.CreateUser(username, password);
+                if (create != null)
+                {
+                    if(create.result == true)
+                    {
+                        DatabaseConnection.UserLoginRequest login = new();
+                        login.result = create.result;
+                        login.userID = create.userID;
+                        login.key = create.key;
+                        login.data = create.data;
+
+                        string secure_pass = User.SecurePassword(create.userID, password);
+                        return new User(login, username, secure_pass);
+                    }
                 }
             }
 
-            return id;
+            return null;
         }
 
-        public void GenerateUserIdentification(string password_hash1) 
+        public static string SecurePassword(string userID, string password)
         {
-            this.password_hash2 = Crypto.GetHashString(password_hash1);
+            return password + userID;
+        }
 
-            long currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            int seed = (int)(currentTimeMillis % int.MaxValue);
-            Random random = new Random(seed);
-            byte[] key = new byte[128];
-            string key_string = "";
-            for (int i = 0; i < key.Length; i++)
-            {
-                key[i] = (byte)random.Next(256);
-                key_string += key[i].ToString("X2");
-            }
-
-            this.decrypted_key = key_string;
-            this.encryption_key = Crypto.Encrypt(decrypted_key, password_hash1, ID);
+        public string GetEncryptedData()
+        {
+            string decrypted = JsonSerializer.Serialize(data);
+            return Crypto.Encrypt(decrypted, decrypted_key, ID);
         }
 
         public void AddRecord(string word, int bad_tries, List<char> guesses)

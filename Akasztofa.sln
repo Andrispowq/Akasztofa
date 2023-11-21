@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Akasztofa", "Akasztofa\Akasztofa.csproj", "{29304756-97E0-4C43-87E0-2B8F2BD69322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akasztofa", "Akasztofa\Akasztofa.csproj", "{29304756-97E0-4C43-87E0-2B8F2BD69322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanServer", "HangmanServer\HangmanServer.csproj", "{2311AC2C-39A8-41CE-8252-10AA007E9609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{29304756-97E0-4C43-87E0-2B8F2BD69322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29304756-97E0-4C43-87E0-2B8F2BD69322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29304756-97E0-4C43-87E0-2B8F2BD69322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2311AC2C-39A8-41CE-8252-10AA007E9609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2311AC2C-39A8-41CE-8252-10AA007E9609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2311AC2C-39A8-41CE-8252-10AA007E9609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2311AC2C-39A8-41CE-8252-10AA007E9609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

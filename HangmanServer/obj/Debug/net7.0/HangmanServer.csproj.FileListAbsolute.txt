@@ -1,0 +1,15 @@
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\bin\Debug\net7.0\HangmanServer.exe
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\bin\Debug\net7.0\HangmanServer.deps.json
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\bin\Debug\net7.0\HangmanServer.runtimeconfig.json
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\bin\Debug\net7.0\HangmanServer.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\bin\Debug\net7.0\HangmanServer.pdb
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.csproj.AssemblyReference.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.AssemblyInfoInputs.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.AssemblyInfo.cs
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.csproj.CoreCompileInputs.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\refint\HangmanServer.dll
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.pdb
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\HangmanServer.genruntimeconfig.cache
+C:\Users\akmec\OneDrive\Asztali gép\Progalap\Akasztofa\HangmanServer\obj\Debug\net7.0\ref\HangmanServer.dll
