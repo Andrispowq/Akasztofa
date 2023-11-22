@@ -46,10 +46,24 @@ namespace HangmanServer
                 NetworkStream stream = client.GetStream();
 
                 //read request 
-                byte[] requestBytes = new byte[1024];
-                int bytesRead = stream.Read(requestBytes, 0, requestBytes.Length);
+                //byte[] requestBytes = new byte[1024];
+                //int bytesRead = stream.Read(requestBytes, 0, requestBytes.Length);
 
-                string request = Encoding.UTF8.GetString(requestBytes, 0, bytesRead);
+                string request;
+                byte[] bytes = new byte[1024];
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    int numBytesRead;
+                    while ((numBytesRead = stream.Read(bytes, 0, bytes.Length)) > 0)
+                    {
+                        ms.Write(bytes, 0, numBytesRead);
+                        if (numBytesRead != 1024)
+                            break;
+                    }
+                    request = Encoding.ASCII.GetString(ms.ToArray(), 0, (int)ms.Length);
+                }
+
+                //string request = Encoding.UTF8.GetString(requestBytes, 0, bytesRead);
                 var requestHeaders = ParseHeaders(request);
 
                 string[] requestFirstLine = requestHeaders.requestType.Split(" ");
@@ -105,6 +119,24 @@ namespace HangmanServer
                     else if(type == "update" && username != null && password != null && data != null)
                     {
                         //User update
+                        /*string new_data = "";
+
+                        int BlockSize = 1024;
+                        int DataRead = 0;
+                        byte[] DataByte = new byte[BlockSize];
+                        lock (this)
+                        {
+                            while (true)
+                            {
+                                DataRead = stream.Read(DataByte, 0, BlockSize);
+                                new_data += Encoding.ASCII.GetString(DataByte);
+                                if (DataRead == 0)
+                                {
+                                    break;
+                                }
+                            }
+                        }*/
+
                         UserUpdateRequest result = requests.HandleUpdateUser(username, password, data);
 
                         string result_s = JsonSerializer.Serialize(result);

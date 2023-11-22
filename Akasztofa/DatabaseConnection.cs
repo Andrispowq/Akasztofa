@@ -73,6 +73,13 @@ namespace Akasztofa
 
         public UserUpdateRequest? UpdateUser(string username, string password, string data_encrypted)
         {
+            /*tcpClient = new TcpClient("127.0.0.1", 6969);
+            networkStream = tcpClient.GetStream();
+
+            byte[] buffer = Encoding.ASCII.GetBytes(data_encrypted);
+            networkStream.Write(buffer, 0, buffer.Length);
+            networkStream.Close();*/
+
             string query = "?type=update&username=" + username + "&password=" + password + "&data=" + data_encrypted;
             string result = GetRequest(query);
             return JsonSerializer.Deserialize<UserUpdateRequest>(result);
