@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Akasztofa
 {
@@ -12,15 +13,26 @@ namespace Akasztofa
         private const string ValidInputs = "!&'*,./0123456789:;<>?\\abcdefghijklmnopqrstuvwxyz~­áäéëíóöúüőťű";
         private string[]? words_array = null;
 
-        private static string DatabaseAddress = "localhost";
-        private static int DatabasePort = 6969;
-
         private DatabaseConnection dbc;
         private User? user = null;
+        private Config.ConfigData configData;
 
-        public Game()
+        private Game()
         {
-            dbc = new DatabaseConnection(DatabaseAddress, DatabasePort);
+            configData = Config.LoadConfigData("config.json");
+            dbc = new DatabaseConnection(configData.serverIP, configData.serverPort);
+        }
+
+        private static Game? instance;
+        public static Game GetInstance()
+        {
+            if(instance == null)
+            {
+                Console.CancelKeyPress += OnCancelKeyPress;
+                instance = new Game();
+            }
+
+            return instance;
         }
 
         public bool Init()
@@ -29,10 +41,15 @@ namespace Akasztofa
             return user != null;
         }
 
+        static void OnCancelKeyPress(object? sender, ConsoleCancelEventArgs e)
+        {
+            GetInstance().Shutdown();
+            Environment.Exit(0);
+        }
+
         public void Shutdown()
         {
-            string data = user!.GetEncryptedData();
-            DatabaseConnection.UserUpdateRequest? update = dbc.UpdateUser(user.username, user.password, data);
+            dbc.LogoutUser(user!.SessionID);
         }
 
         public void Run()
@@ -90,25 +107,34 @@ namespace Akasztofa
                 Console.WriteLine();
 
                 bool correct;
-                char c;
+                string characters;
                 do
                 {
-                    correct = true;
-                    Console.WriteLine("Enter a character: ");
-                    correct &= char.TryParse(Console.ReadLine(), out c);
-                    correct &= ValidInput(c);
+                    correct = false;
+                    Console.WriteLine("Enter one or more characters: ");
+                    characters = Console.ReadLine()!;
+                    if(characters != "")
+                    {
+                        correct = true;
+                    }
                 }
                 while (!correct);
 
-                if (!guesses.Contains(c))
+                foreach (char c in characters)
                 {
-                    guesses.Add(c);
-
-                    if (!word.Contains(c))
+                    if(ValidInputs.Contains(c))
                     {
-                        bad_guesses++;
+                        if (!guesses.Contains(c))
+                        {
+                            guesses.Add(c);
+
+                            if (!word.Contains(c))
+                            {
+                                bad_guesses++;
+                            }
+                        }
                     }
-                }
+                }       
 
                 if (Draw(word, guesses))
                 {
@@ -122,6 +148,7 @@ namespace Akasztofa
 
             user.AddRecord(word, bad_guesses, guesses);
             user.AddHighscore((44 - bad_guesses) * 10 + word.Length);
+            dbc.UpdateUser(user.SessionID, user.GetEncryptedData());
 
             Console.ForegroundColor = ConsoleColor.Green;
 
@@ -145,7 +172,6 @@ namespace Akasztofa
 
             Console.ResetColor();
         }
-
 
         bool ValidInput(char c)
         {

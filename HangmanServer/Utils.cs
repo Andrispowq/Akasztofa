@@ -7,28 +7,26 @@ using System.Threading.Tasks;
 namespace Akasztofa
 {
     internal class Utils
-    {        
-        public static string GetPassword()
+    {
+        public static (Dictionary<string, string> headers, string requestType) ParseHeaders(string headerString)
         {
-            string pass = "";
-            ConsoleKey key;
-            do
+            var headerLines = headerString.Split('\r', '\n');
+            string firstLine = headerLines[0];
+            var headerValues = new Dictionary<string, string>();
+
+            foreach (var headerLine in headerLines)
             {
-                var keyInfo = Console.ReadKey(intercept: true);
-                key = keyInfo.Key;
-
-                if (key == ConsoleKey.Backspace && pass.Length > 0)
+                var headerDetail = headerLine.Trim();
+                var delimiterIndex = headerLine.IndexOf(':');
+                if (delimiterIndex >= 0)
                 {
-                    Console.Write("\b \b");
-                    pass = pass[0..^1];
+                    var headerName = headerLine.Substring(0, delimiterIndex).Trim();
+                    var headerValue = headerLine.Substring(delimiterIndex + 1).Trim();
+                    headerValues.Add(headerName, headerValue);
                 }
-                else if (!char.IsControl(keyInfo.KeyChar))
-                {
-                    pass += keyInfo.KeyChar;
-                }
-            } while (key != ConsoleKey.Enter);
+            }
 
-            return pass;
+            return (headerValues, firstLine);
         }
     }
 }

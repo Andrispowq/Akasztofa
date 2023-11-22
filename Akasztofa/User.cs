@@ -34,6 +34,8 @@ namespace Akasztofa
         public string password_hash2 { get; set; }
         public string encryption_key { get; set; }
 
+        public string SessionID;
+
         public string password = "";
         private string decrypted_key = "";
         private PlayerDataInternal data = new();
@@ -45,6 +47,7 @@ namespace Akasztofa
             string hash1 = Crypto.GetHashString(secure_pass);
             string hash2 = Crypto.GetHashString(hash1);
 
+            this.SessionID = loginInfo.sessionID.ToString();
             this.ID = loginInfo.userID;
             this.username = username;
             this.password = password;

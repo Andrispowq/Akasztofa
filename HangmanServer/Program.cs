@@ -8,7 +8,9 @@ namespace HangmanServer
     {
         static void Main(string[] args)
         {
-            Server server = new Server("127.0.0.1", 6969);
+            new Server();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }

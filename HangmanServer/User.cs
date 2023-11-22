@@ -35,7 +35,7 @@ namespace Akasztofa
             this.encryption_key = json.encrypted_key;
             this.decrypted_key = Crypto.Decrypt(json.encrypted_key, password_hash1, ID);
 
-            string filepath = Server.WebServerPath + "/players/" + username;
+            string filepath = Connection.WebServerPath + "/players/" + username;
             if (File.Exists(filepath))
             {
                 data_encrypted = File.ReadAllText(filepath);
@@ -78,7 +78,7 @@ namespace Akasztofa
 
         public void SaveData()
         {
-            File.WriteAllText(Server.WebServerPath + "/players/" + username, data_encrypted);
+            File.WriteAllText(Connection.WebServerPath + "/players/" + username, data_encrypted);
         }
 
         public void GenerateUserIdentification(string password_hash1) 

@@ -41,7 +41,7 @@ namespace Akasztofa
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
+            Game game = Game.GetInstance();
             game.Run();
         }
     }

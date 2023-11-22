@@ -10,66 +10,86 @@ using System.Web;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using static HangmanServer.Requests;
+using System.Collections;
+using System.Data.Common;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Collections.Concurrent;
 
 namespace HangmanServer
 {
     internal class Server
     {
-        private TcpListener listener;
-        private int port;
-        private IPAddress localAddr;
-        private string serverEtag = Guid.NewGuid().ToString("N");
-
-        public static string WebServerPath = @"WebServer";
-
+        private Connection connection;
         private Requests requests;
+        private Config config;
 
-        public Server(string IP, int port)
+        private ConcurrentDictionary<Guid, Session> sessions;
+        private bool exitThread = false;
+
+        public Server()
         {
-            this.port = port;
-            this.localAddr = IPAddress.Parse(IP);
+            config = Config.GetInstance();
+            config.config = Config.LoadConfigData("config.json");
+            Connection.WebServerPath = config.config.serverFolder;
+            connection = new Connection(config.config.serverIP, config.config.serverPort);
+            requests = new Requests(Connection.WebServerPath + "/user_database.json");
+            sessions = new ConcurrentDictionary<Guid, Session>();
 
-            requests = new Requests(WebServerPath + "/user_database.json");
-
-            listener = new TcpListener(localAddr, port);
-            listener.Start();
-            Console.WriteLine($"Web Server Running on {localAddr.ToString()} on port {port}... Press ^C to Stop...");
-            Thread th = new Thread(new ThreadStart(StartListen));
+            Thread th = new Thread(new ThreadStart(ListenerThread));
             th.Start();
-        }
 
-        private void StartListen()
-        {
-            while (true)
+            var then = DateTime.UtcNow;
+            while(true)
             {
-                TcpClient client = listener.AcceptTcpClient();
-                NetworkStream stream = client.GetStream();
+                var now = DateTime.UtcNow;
+                var diff = (now - then);
+                double delta = diff.TotalSeconds;
+                then = DateTime.UtcNow;
 
-                //read request 
-                //byte[] requestBytes = new byte[1024];
-                //int bytesRead = stream.Read(requestBytes, 0, requestBytes.Length);
-
-                string request;
-                byte[] bytes = new byte[1024];
-                using (MemoryStream ms = new MemoryStream())
+                string? input = Console.ReadLine();
+                if(input != null && input != "")
                 {
-                    int numBytesRead;
-                    while ((numBytesRead = stream.Read(bytes, 0, bytes.Length)) > 0)
+                    if(input == "q" || input == "quit" || input == "e" || input == "exit")
                     {
-                        ms.Write(bytes, 0, numBytesRead);
-                        if (numBytesRead != 1024)
-                            break;
+                        exitThread = true;
+                        th.Join();
+                        connection.Close();
+                        break;
                     }
-                    request = Encoding.ASCII.GetString(ms.ToArray(), 0, (int)ms.Length);
                 }
 
+                List<Guid> timedouts = new List<Guid>();
+                foreach(var session in sessions)
+                {
+                    session.Value.Update(delta);
+                    if(session.Value.IsTimedOut())
+                    {
+                        timedouts.Add(session.Key);
+                    }
+                }
+
+                foreach(var ID in timedouts)
+                {
+                    Console.WriteLine("Timed out session (name: {0}, sessionID: {1})", sessions[ID].GetUserData().username, ID);
+                    Session? session;
+                    sessions.Remove(ID, out session);
+                }
+            }
+        }
+
+        private void ListenerThread()
+        {
+            while (!exitThread)
+            {
+                string request = connection.GetRequest();
+
                 //string request = Encoding.UTF8.GetString(requestBytes, 0, bytesRead);
-                var requestHeaders = ParseHeaders(request);
+                var requestHeaders = Utils.ParseHeaders(request);
 
                 string[] requestFirstLine = requestHeaders.requestType.Split(" ");
-                string httpVersion = requestFirstLine.LastOrDefault();
-                string contentType = requestHeaders.headers.GetValueOrDefault("Accept");
-                string contentEncoding = requestHeaders.headers.GetValueOrDefault("Acept-Encoding");
+                string httpVersion = requestFirstLine.LastOrDefault()!;
+                string contentType = requestHeaders.headers.GetValueOrDefault("Accept")!;
+                string contentEncoding = requestHeaders.headers.GetValueOrDefault("Acept-Encoding")!;
 
                 Console.WriteLine("New request: " + request);
 
@@ -83,94 +103,173 @@ namespace HangmanServer
 
                     var parsed = HttpUtility.ParseQueryString(req);
                     string? type = parsed.Get("type");
-                    string? username = parsed.Get("username");
-                    string? password = parsed.Get("password");
-                    string? data = parsed.Get("data");
-                    if(type == "exists" && username != null)
+                    if (type != null)
                     {
-                        //User exists
-                        UserExistsRequest result = requests.HandleUserExists(username);
-
-                        string result_s = JsonSerializer.Serialize(result);
-                        byte[] result_a = Encoding.ASCII.GetBytes(result_s);
-                        SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0, ref stream);
-                        stream.Write(result_a, 0, result_a.Length);
-                    }
-                    else if(type == "login" && username != null && password != null)
-                    {
-                        //User login
-                        UserLoginRequest result = requests.HandleUserLogin(username, password);
-
-                        string result_s = JsonSerializer.Serialize(result);
-                        byte[] result_a = Encoding.ASCII.GetBytes(result_s);
-                        SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0, ref stream);
-                        stream.Write(result_a, 0, result_a.Length);
-                    }
-                    else if(type == "create" &&  username != null && password != null)
-                    {
-                        //User creation
-                        UserCreationRequest result = requests.HandleCreateUser(username, password);
-
-                        string result_s = JsonSerializer.Serialize(result);
-                        byte[] result_a = Encoding.ASCII.GetBytes(result_s);
-                        SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0, ref stream);
-                        stream.Write(result_a, 0, result_a.Length);
-                    }
-                    else if(type == "update" && username != null && password != null && data != null)
-                    {
-                        //User update
-                        /*string new_data = "";
-
-                        int BlockSize = 1024;
-                        int DataRead = 0;
-                        byte[] DataByte = new byte[BlockSize];
-                        lock (this)
+                        if (type == "exists")
                         {
-                            while (true)
+                            string? username = parsed.Get("username");
+                            if(username != null)
                             {
-                                DataRead = stream.Read(DataByte, 0, BlockSize);
-                                new_data += Encoding.ASCII.GetString(DataByte);
-                                if (DataRead == 0)
+                                UserExistsRequest result = requests.HandleUserExists(username);
+
+                                connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                                connection.WriteStream(JsonSerializer.Serialize(result));
+                            }
+                            else
+                            {
+                                connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                connection.WriteStream("ERROR: specify the username");
+                            }
+                        }
+                        else if(type == "login")
+                        {
+                            string? username = parsed.Get("username");
+                            string? password = parsed.Get("password");
+                            if (username != null && password != null)
+                            {
+                                bool found = false;
+                                foreach(var session in sessions)
                                 {
-                                    break;
+                                    if(session.Value.GetUserData().username == username)
+                                    {
+                                        found = true;
+                                        break;
+                                    }
+                                }
+
+                                if (!found)
+                                {
+                                    User? user;
+                                    UserLoginRequest result = requests.HandleUserLogin(username, password, out user);
+
+                                    if (user != null)
+                                    {
+                                        Session newSession = new Session(user);
+                                        result.sessionID = newSession.GetSessionID();
+                                        sessions.TryAdd(newSession.GetSessionID(), newSession);
+                                    }
+
+                                    connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                                    connection.WriteStream(JsonSerializer.Serialize(result));
+                                }
+                                else
+                                {
+                                    connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                    connection.WriteStream("ERROR: username " + username + " is already in an active session!");
                                 }
                             }
-                        }*/
+                            else
+                            {
+                                connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                connection.WriteStream("ERROR: specify the username and password");
+                            }
+                        }
+                        else if(type == "create")
+                        {
+                            string? username = parsed.Get("username");
+                            string? password = parsed.Get("password");
+                            if (username != null && password != null)
+                            {
+                                UserCreationRequest result = requests.HandleCreateUser(username, password);
 
-                        UserUpdateRequest result = requests.HandleUpdateUser(username, password, data);
+                                connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                                connection.WriteStream(JsonSerializer.Serialize(result));
+                            }
+                            else
+                            {
+                                connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                connection.WriteStream("ERROR: specify the username and password");
+                            }
+                        }
+                        else if(type == "update")
+                        {
+                            string? sessionID = parsed.Get("sessionID");
+                            string? data = parsed.Get("data");
+                            if (sessionID != null && data != null)
+                            {
+                                Guid guid = Guid.Parse(sessionID);
+                                if(sessions.ContainsKey(guid))
+                                {
+                                    Session session = sessions[guid];
+                                    session.RefreshSession();
 
-                        string result_s = JsonSerializer.Serialize(result);
-                        byte[] result_a = Encoding.ASCII.GetBytes(result_s);
-                        SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0, ref stream);
-                        stream.Write(result_a, 0, result_a.Length);
+                                    User user = session.GetUserData();
+                                    UserUpdateRequest result = requests.HandleUpdateUser(user, data);
+
+                                    connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                                    connection.WriteStream(JsonSerializer.Serialize(result));
+                                }
+                                else
+                                {
+                                    connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                    connection.WriteStream("ERROR: bad sessionID");
+                                }
+                            }
+                            else
+                            {
+                                connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                connection.WriteStream("ERROR: specify the sessionID and data");
+                            }
+                        }
+                        else if(type == "logout")
+                        {
+                            string? sessionID = parsed.Get("sessionID");
+                            if (sessionID != null)
+                            {
+                                Guid guid = Guid.Parse(sessionID);
+                                if (sessions.ContainsKey(guid))
+                                {
+                                    Session? session = sessions[guid];
+                                    User user = session.GetUserData();
+
+                                    UserLogoutRequest result = new UserLogoutRequest();
+                                    result.result = true;
+                                    sessions.Remove(guid, out session);
+
+                                    connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                                    connection.WriteStream(JsonSerializer.Serialize(result));
+                                }
+                                else
+                                {
+                                    connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                    connection.WriteStream("ERROR: bad sessionID");
+                                }
+                            }
+                            else
+                            {
+                                connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                connection.WriteStream("ERROR: specify the sessionID");
+                            }
+                        }
+                        else
+                        {
+                            connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                            connection.WriteStream("ERROR: specify the correct type, not " + type);
+                        }
                     }
-                    else if(type == "logout" && username != null && password != null)
+                    else
                     {
-                        //User logout
-                        UserLogoutRequest result = requests.HandleLogoutUser(username, password);
-
-                        string result_s = JsonSerializer.Serialize(result);
-                        byte[] result_a = Encoding.ASCII.GetBytes(result_s);
-                        SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0, ref stream);
-                        stream.Write(result_a, 0, result_a.Length);
+                        connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                        connection.WriteStream("ERROR: specify the method type");
                     }
+
                 }
                 else
                 {
-                    SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0, ref stream);
+                    connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
                 }
 
-                client.Close();
+                connection.CloseActiveClient();
             }
         }
 
-        private byte[] GetContent(string requestedPath)
+        private byte[]? GetContent(string requestedPath)
         {
             if (requestedPath == "/")
             {
                 requestedPath = "index.html";
             }
-            string filePath = Path.Join(WebServerPath, requestedPath);
+            string filePath = Path.Join(Connection.WebServerPath, requestedPath);
 
             if (!File.Exists(filePath))
             {
@@ -181,44 +280,6 @@ namespace HangmanServer
                 byte[] file = System.IO.File.ReadAllBytes(filePath);
                 return file;
             }
-        }
-
-        private (Dictionary<string, string> headers, string requestType) ParseHeaders(string headerString)
-        {
-            var headerLines = headerString.Split('\r', '\n');
-            string firstLine = headerLines[0];
-            var headerValues = new Dictionary<string, string>();
-
-            foreach (var headerLine in headerLines)
-            {
-                var headerDetail = headerLine.Trim();
-                var delimiterIndex = headerLine.IndexOf(':');
-                if (delimiterIndex >= 0)
-                {
-                    var headerName = headerLine.Substring(0, delimiterIndex).Trim();
-                    var headerValue = headerLine.Substring(delimiterIndex + 1).Trim();
-                    headerValues.Add(headerName, headerValue);
-                }
-            }
-
-            return (headerValues, firstLine);
-        }
-
-        private void SendHeaders(string? httpVersion, int statusCode, string statusMsg, string? contentType, string? contentEncoding,
-            int byteLength, ref NetworkStream networkStream)
-        {
-            string responseHeaderBuffer = "";
-
-            responseHeaderBuffer = $"HTTP/1.1 {statusCode} {statusMsg}\r\n" +
-                $"Connection: Keep-Alive\r\n" +
-                $"Date: {DateTime.UtcNow.ToString()}\r\n" +
-                $"Server: Windows PC \r\n" +
-                $"Content-Encoding: {contentEncoding}\r\n" +
-                "X-Content-Type-Options: nosniff" +
-                $"Content-Type: application/signed-exchange;v=b3\r\n\r\n";
-
-            byte[] responseBytes = Encoding.UTF8.GetBytes(responseHeaderBuffer);
-            networkStream.Write(responseBytes, 0, responseBytes.Length);
         }
     }
 }

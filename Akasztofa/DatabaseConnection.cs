@@ -31,13 +31,13 @@ namespace Akasztofa
 
         public class UserLoginRequest : RequestResult
         {
+            public Guid sessionID { get; set; }
             public string userID { get; set; } = "";
             public string key { get; set; } = "";
             public string data { get; set; } = "";
         }
 
         private HttpClient client;
-        private NetworkStream stream;
 
         public DatabaseConnection(string databaseIP, int port)
         {
@@ -71,23 +71,16 @@ namespace Akasztofa
             return JsonSerializer.Deserialize<UserLoginRequest>(result);
         }
 
-        public UserUpdateRequest? UpdateUser(string username, string password, string data_encrypted)
+        public UserUpdateRequest? UpdateUser(string sessionID, string data_encrypted)
         {
-            /*tcpClient = new TcpClient("127.0.0.1", 6969);
-            networkStream = tcpClient.GetStream();
-
-            byte[] buffer = Encoding.ASCII.GetBytes(data_encrypted);
-            networkStream.Write(buffer, 0, buffer.Length);
-            networkStream.Close();*/
-
-            string query = "?type=update&username=" + username + "&password=" + password + "&data=" + data_encrypted;
+            string query = "?type=update&sessionID=" + sessionID + "&data=" + data_encrypted;
             string result = GetRequest(query);
             return JsonSerializer.Deserialize<UserUpdateRequest>(result);
         }
 
-        public UserLogoutRequest? LogoutUser(string username, string password)
+        public UserLogoutRequest? LogoutUser(string sessionID)
         {
-            string query = "?type=logout&username=" + username + "&password=" + password;
+            string query = "?type=logout&sessionID=" + sessionID;
             string result = GetRequest(query);
             return JsonSerializer.Deserialize<UserLogoutRequest>(result);
         }

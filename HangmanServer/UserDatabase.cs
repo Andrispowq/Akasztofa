@@ -32,7 +32,7 @@ namespace Akasztofa
                 data = JsonSerializer.Deserialize<List<JSONData>>(json)!;
             }
 
-            string path = Server.WebServerPath + "/players";
+            string path = Connection.WebServerPath + "/players";
             if (!FileSystem.DirectoryExists(path))
             {
                 FileSystem.CreateDirectory(path);

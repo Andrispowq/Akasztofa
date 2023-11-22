@@ -26,6 +26,7 @@ namespace HangmanServer
 
         public class UserLoginRequest : RequestResult
         {
+            public Guid sessionID { get; set; }
             public string userID { get; set; } = "";
             public string key { get; set; } = "";
             public string data { get; set; } = "";
@@ -48,9 +49,9 @@ namespace HangmanServer
             return result;
         }
 
-        public UserLoginRequest HandleUserLogin(string username, string password)
+        public UserLoginRequest HandleUserLogin(string username, string password, out User? user)
         {
-            User? user = null;
+            user = null;
             if (database.UserExists(username))
             {
                 string pass_try = database.SecurePassword(database.GetUserID(username), password);
@@ -75,16 +76,8 @@ namespace HangmanServer
             return result;
         }
 
-        public UserUpdateRequest HandleUpdateUser(string username, string password, string data)
+        public UserUpdateRequest HandleUpdateUser(User? user, string data)
         {
-            User? user = null;
-            if (database.UserExists(username))
-            {
-                string pass_try = database.SecurePassword(database.GetUserID(username), password);
-                string hash = Crypto.GetHashString(pass_try);
-                database.TryLogin(username, hash, out user);
-            }
-
             UserUpdateRequest result = new();
             result.result = false;
 
@@ -95,21 +88,6 @@ namespace HangmanServer
                 result.result = true;
             }
 
-            return result;
-        }
-
-        public UserLogoutRequest HandleLogoutUser(string username, string password)
-        {
-            User? user = null;
-            if (database.UserExists(username))
-            {
-                string pass_try = database.SecurePassword(database.GetUserID(username), password);
-                string hash = Crypto.GetHashString(pass_try);
-                database.TryLogin(username, hash, out user);
-            }
-
-            UserLogoutRequest result = new();
-            result.result = user != null;
             return result;
         }
 
