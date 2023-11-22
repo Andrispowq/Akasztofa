@@ -249,8 +249,16 @@ namespace HangmanServer
                     }
                     else
                     {
-                        connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
-                        connection.WriteStream("ERROR: specify the method type");
+                        byte[]? content = GetContent(requestFirstLine[1]);
+                        if (content != null)
+                        {
+                            connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                            connection.WriteStream(content);
+                        }
+                        else
+                        {
+                            connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                        }
                     }
 
                 }

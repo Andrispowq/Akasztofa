@@ -91,6 +91,11 @@ namespace HangmanServer
             activeStream!.Write(data_b, 0, data_b.Length);
         }
 
+        public void WriteStream(byte[] data)
+        {
+            activeStream!.Write(data, 0, data.Length);
+        }
+
         public NetworkStream? GetActiveStream()
         {
             return activeStream;
