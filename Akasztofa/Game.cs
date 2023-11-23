@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -21,6 +23,17 @@ namespace Akasztofa
         {
             configData = Config.LoadConfigData("config.json");
             dbc = new DatabaseConnection(configData.serverIP, configData.serverPort);
+
+            DatabaseConnection.ClientConnectRequest? result = dbc.ConnectClient(configData.clientID);
+            if(result != null)
+            {
+                dbc.connectionID = result.connectionID.ToString();
+
+                RSAParameters parameters = new RSAParameters();
+                parameters.Exponent = result.exponent;
+                parameters.Modulus = result.modulus;
+                dbc.rsa = RSA.Create(parameters);
+            }
         }
 
         private static Game? instance;
@@ -50,6 +63,7 @@ namespace Akasztofa
         public void Shutdown()
         {
             dbc.LogoutUser(user!.SessionID);
+            dbc.DisconnectClient(dbc.connectionID);
         }
 
         public void Run()
@@ -215,7 +229,13 @@ namespace Akasztofa
                 }
             }
 
-            return words_array[new Random().Next(words_array.Length)].ToLower();
+            string word = words_array[new Random().Next(words_array.Length)].ToLower();
+            if(word.Last() == '\r')
+            {
+                word = word.Substring(0, word.Length - 1);
+            }
+
+            return word;
         }
     }
 }

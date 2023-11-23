@@ -17,7 +17,7 @@ namespace HangmanServer
         private IPAddress localAddr;
         private string serverEtag = Guid.NewGuid().ToString("N");
 
-        public static string WebServerPath;
+        public static string WebServerPath = "";
 
         private TcpClient? activeClient = null;
         private NetworkStream? activeStream = null;
@@ -48,6 +48,12 @@ namespace HangmanServer
 
         public string GetRequest()
         {
+            if (!listener.Pending())
+            {
+                Thread.Sleep(500); 
+                return "";
+            }
+
             activeClient = AcceptClient();
             activeStream = activeClient.GetStream();
 

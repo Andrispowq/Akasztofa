@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Net.Sockets;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -36,8 +37,19 @@ namespace Akasztofa
             public string key { get; set; } = "";
             public string data { get; set; } = "";
         }
+        public class ClientConnectRequest : RequestResult
+        {
+            public Guid connectionID { get; set; }
+            public byte[]? exponent { get; set; }
+            public byte[]? modulus { get; set; }
+        }
+
+        public class ClientDisconnectRequest : RequestResult { }
 
         private HttpClient client;
+
+        public string connectionID;
+        public RSA rsa;
 
         public DatabaseConnection(string databaseIP, int port)
         {
@@ -50,23 +62,44 @@ namespace Akasztofa
             client.BaseAddress = new Uri("http://" + databaseIP + ":" + port);
         }
 
-        public UserExistsRequest? UserExists(string username)
+        public string EncryptPassword(string password)
         {
-            string query = "?type=exists&username=" + username;
+            byte[] pass_bytes = Encoding.Unicode.GetBytes(password);
+            byte[] bytes = rsa.Encrypt(pass_bytes, RSAEncryptionPadding.Pkcs1);
+            return Convert.ToBase64String(bytes);
+        }
+
+        public ClientConnectRequest? ConnectClient(string clientID)
+        {
+            string query = "?type=connect&clientID=" + clientID;
+            string result = GetRequest(query);
+            return JsonSerializer.Deserialize<ClientConnectRequest>(result);
+        }
+
+        public ClientDisconnectRequest? DisconnectClient(string connectionID)
+        {
+            string query = "?type=disconnect&connectionID=" + connectionID;
+            string result = GetRequest(query);
+            return JsonSerializer.Deserialize<ClientDisconnectRequest>(result);
+        }
+
+        public UserExistsRequest? UserExists(string connectionID, string username)
+        {
+            string query = "?type=exists&connectionID=" + connectionID + "&username=" + username;
             string result = GetRequest(query);
             return JsonSerializer.Deserialize<UserExistsRequest>(result);
         }
 
-        public UserCreationRequest? CreateUser(string username, string password)
+        public UserCreationRequest? CreateUser(string connectionID, string username, string password)
         {
-            string query = "?type=create&username=" + username + "&password=" + password;
+            string query = "?type=create&connectionID=" + connectionID + "&username=" + username + "&password=" + password;
             string result = GetRequest(query);
             return JsonSerializer.Deserialize<UserCreationRequest>(result);
         }
 
-        public UserLoginRequest? LoginUser(string username, string password)
+        public UserLoginRequest? LoginUser(string connectionID, string username, string password)
         {
-            string query = "?type=login&username=" + username + "&password=" + password;
+            string query = "?type=login&connectionID=" + connectionID + "&username=" + username + "&password=" + password;
             string result = GetRequest(query);
             return JsonSerializer.Deserialize<UserLoginRequest>(result);
         }

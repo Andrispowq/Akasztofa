@@ -31,9 +31,17 @@ namespace HangmanServer
             public string key { get; set; } = "";
             public string data { get; set; } = "";
         }
-
         public class UserUpdateRequest : RequestResult { }
         public class UserLogoutRequest : RequestResult { }
+
+        public class ClientConnectRequest : RequestResult 
+        {
+            public Guid connectionID { get; set; }
+            public byte[]? exponent { get; set; }
+            public byte[]? modulus { get; set; }
+        }
+
+        public class ClientDisconnectRequest : RequestResult { }
 
         private UserDatabase database;
 
@@ -49,12 +57,13 @@ namespace HangmanServer
             return result;
         }
 
-        public UserLoginRequest HandleUserLogin(string username, string password, out User? user)
+        public UserLoginRequest HandleUserLogin(Session session, string username, string password, out User? user)
         {
             user = null;
             if (database.UserExists(username))
             {
-                string pass_try = database.SecurePassword(database.GetUserID(username), password);
+                string password_decrypted = session.Decrypt(password);
+                string pass_try = database.SecurePassword(database.GetUserID(username), password_decrypted);
                 string hash = Crypto.GetHashString(pass_try);
                 database.TryLogin(username, hash, out user);
             }
@@ -91,10 +100,11 @@ namespace HangmanServer
             return result;
         }
 
-        public UserCreationRequest HandleCreateUser(string username, string password)
+        public UserCreationRequest HandleCreateUser(Session session, string username, string password)
         {
             User? user = null;
-            string secure_pass = database.SecurePassword(database.GetUserID(username), password);
+            string password_decrypted = session.Decrypt(password);
+            string secure_pass = database.SecurePassword(database.GetUserID(username), password_decrypted);
             bool res = database.CreateNewUser(username, secure_pass, out user);
 
             UserCreationRequest result = new();
