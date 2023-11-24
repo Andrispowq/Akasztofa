@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Hangman Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="website/styles.css">
 </head>
-<body>
-    <div class="hangman-container">
-        <h1>Hangman Game</h1>
-        <div class="word-display" id="wordDisplay"></div>
-        <div class="guesses-left">Guesses Left: <span id="guessesLeft">6</span></div>
+<body onload="onload()">
+    <div class="login-page">
+        <h1>Hangman Login</h1>
         <div class="input-container">
-            <input type="text" id="guessInput" maxlength="1">
-            <button onclick="guessLetter()">Guess</button>
+            <p>Username: <input type="text" id="username" maxlength="255"></p>
+            <p>Password: <input type="password" id="password" maxlength="255"></p>
+            <button onclick="login()">Login</button>
+            <div id="response"></div>
         </div>
-        <div class="guessed-letters" id="guessedLetters">Guessed Letters: </div>
     </div>
-
-    <script src="hangman.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="website/hangman.js"></script>
 </body>
 </html>

@@ -36,13 +36,14 @@ namespace HangmanServer
             Connection.WebServerPath = config.config.serverFolder;
             connection = new Connection(config.config.serverIP, config.config.serverPort);
             requests = new Requests(Connection.WebServerPath + "/user_database.json");
-
             Logger.InitialiseLogger();
 
             sessions = new ConcurrentDictionary<Guid, Session>();
 
             Thread th = new Thread(new ThreadStart(ListenerThread));
             th.Start();
+
+            Console.WriteLine("Web Server Running on {0}:{1}... To exit, press the 'q' or 'e' keys...", config.config.serverIP, config.config.serverPort);
 
             var then = DateTime.UtcNow;
             while (true)
@@ -52,17 +53,26 @@ namespace HangmanServer
                 double delta = diff.TotalSeconds;
                 then = DateTime.UtcNow;
 
-                string? input = Console.ReadLine();
-                if (input != null && input != "")
+                if (Console.KeyAvailable)
                 {
-                    if (input == "q" || input == "quit" || input == "e" || input == "exit")
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    switch (key.Key)
                     {
-                        exitThread = true;
-                        th.Join();
-                        Logger.ShutdownLogger();
-                        connection.Close();
-                        break;
+                        case ConsoleKey.Q:
+                        case ConsoleKey.E:
+                            exitThread = true;
+                            th.Join();
+                            Logger.ShutdownLogger();
+                            connection.Close();
+                            break;
+                        default:
+                            break;
                     }
+                }
+
+                if(exitThread)
+                {
+                    break;
                 }
 
                 List<Guid> timeouts = new List<Guid>();
@@ -77,7 +87,7 @@ namespace HangmanServer
 
                 foreach (var ID in timeouts)
                 {
-                    Console.WriteLine("Timed out session (name: {0}, sessionID: {1})", sessions[ID].GetUserData()!.username, ID);
+                    Console.WriteLine("Timed out session (sessionID: {0})", ID);
                     Session? session;
                     sessions.Remove(ID, out session);
                 }
@@ -147,6 +157,14 @@ namespace HangmanServer
                                         result.exponent = exponent;
                                         result.modulus = modulus;
                                     }
+                                    else
+                                    {
+                                        result.message = "ERROR: client already connected!";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
@@ -161,6 +179,7 @@ namespace HangmanServer
                         else if (type == "disconnect")
                         {
                             string? connectionID = parsed.Get("connectionID");
+                            string? noAnswer = parsed.Get("noanswer");
                             if (connectionID != null)
                             {
                                 ClientDisconnectRequest result = new ClientDisconnectRequest();
@@ -175,10 +194,28 @@ namespace HangmanServer
                                         sessions.Remove(connId, out session);
                                         result.result = true;
                                     }
+                                    else
+                                    {
+                                        result.message = "ERROR: GUID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
-                                connection.WriteStream(JsonSerializer.Serialize(result));
+                                if (noAnswer != null)
+                                {
+                                    if(noAnswer != "true")
+                                    {
+                                        connection.WriteStream(JsonSerializer.Serialize(result));
+                                    }
+                                }
+                                else
+                                {
+                                    connection.WriteStream(JsonSerializer.Serialize(result));
+                                }
                             }
                             else
                             {
@@ -202,6 +239,14 @@ namespace HangmanServer
                                     {
                                         result = requests.HandleUserExists(username);
                                     }
+                                    else
+                                    {
+                                        result.message = "ERROR: connectionID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
@@ -218,6 +263,7 @@ namespace HangmanServer
                             string? connectionID = parsed.Get("connectionID");
                             string? username = parsed.Get("username");
                             string? password = parsed.Get("password");
+                            string? plain = parsed.Get("plain");
                             if (connectionID != null && username != null && password != null)
                             {
                                 UserLoginRequest result = new UserLoginRequest();
@@ -226,18 +272,64 @@ namespace HangmanServer
                                 Guid connId;
                                 if (Guid.TryParse(connectionID, out connId))
                                 {
-                                    Session? session = sessions[connId];
-                                    if (session != null)
+                                    if (sessions.ContainsKey(connId))
                                     {
-                                        User? user;
-                                        result = requests.HandleUserLogin(session, username, password, out user);
-
-                                        if (user != null)
+                                        Session? session = sessions[connId];
+                                        if (session.GetSessionID() == Guid.Empty)
                                         {
-                                            session.LoginUser(user);
-                                            result.sessionID = session.GetSessionID();
+                                            bool isPlain = false;
+                                            if (plain != null)
+                                            {
+                                                isPlain = (plain == "true");
+                                            }
+
+                                            bool found = false;
+                                            foreach (var sesh in sessions)
+                                            {
+                                                User? usr = sesh.Value.GetUserData();
+                                                if (usr != null)
+                                                {
+                                                    if (usr.username == username)
+                                                    {
+                                                        found = true;
+                                                        break;
+                                                    }
+                                                }
+                                            }
+
+                                            if (!found)
+                                            {
+                                                User? user;
+                                                result = requests.HandleUserLogin(session, username, password, out user, isPlain);
+
+                                                if (user != null)
+                                                {
+                                                    session.LoginUser(user);
+                                                    result.sessionID = session.GetSessionID();
+                                                }
+                                                else
+                                                {
+                                                    result.message = "ERROR: bad login info";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                result.message = "ERROR: user is already logged in";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            result.message = "ERROR: session already has a user logged in";
                                         }
                                     }
+                                    else
+                                    {
+                                        result.message = "ERROR: connectionID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
@@ -254,6 +346,7 @@ namespace HangmanServer
                             string? connectionID = parsed.Get("connectionID");
                             string? username = parsed.Get("username");
                             string? password = parsed.Get("password");
+                            string? plain = parsed.Get("plain");
                             if (connectionID != null && username != null && password != null)
                             {
                                 UserCreationRequest result = new UserCreationRequest();
@@ -262,11 +355,25 @@ namespace HangmanServer
                                 Guid connId;
                                 if (Guid.TryParse(connectionID, out connId))
                                 {
-                                    Session? session = sessions[connId];
-                                    if (session != null)
+                                    if (sessions.ContainsKey(connId))
                                     {
-                                        result = requests.HandleCreateUser(session, username, password);
+                                        Session? session = sessions[connId];
+                                        bool isPlain = false;
+                                        if (plain != null)
+                                        {
+                                            isPlain = (plain == "true");
+                                        }
+
+                                        result = requests.HandleCreateUser(session, username, password, isPlain);
                                     }
+                                    else
+                                    {
+                                        result.message = "ERROR: connectionID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
@@ -290,6 +397,7 @@ namespace HangmanServer
                                 Guid guid;
                                 if (Guid.TryParse(sessionID, out guid))
                                 {
+                                    bool found = false;
                                     foreach (var session in sessions)
                                     {
                                         if (session.Value.GetSessionID() == guid)
@@ -298,8 +406,19 @@ namespace HangmanServer
 
                                             User user = session.Value.GetUserData()!;
                                             result = requests.HandleUpdateUser(user, data);
+                                            found = true;
+                                            break;
                                         }
                                     }
+
+                                    if(!found)
+                                    {
+                                        result.message = "ERROR: sessionID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
@@ -314,6 +433,7 @@ namespace HangmanServer
                         else if (type == "logout")
                         {
                             string? sessionID = parsed.Get("sessionID");
+                            string? noAnswer = parsed.Get("noanswer");
                             if (sessionID != null)
                             {
                                 UserLogoutRequest result = new UserLogoutRequest();
@@ -322,18 +442,74 @@ namespace HangmanServer
                                 Guid guid;
                                 if (Guid.TryParse(sessionID, out guid))
                                 {
+                                    bool found = false;
                                     foreach (var session in sessions)
                                     {
                                         if (session.Value.GetSessionID() == guid)
                                         {
-                                            User user = session.Value.GetUserData()!;
-
-                                            Session? sesh;
-                                            result.result = true;
-                                            sessions.Remove(guid, out sesh);
+                                            session.Value.LogoutUser();
+                                            found = true;
                                             break;
                                         }
                                     }
+
+                                    if (!found)
+                                    {
+                                        result.message = "ERROR: sessionID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
+                                }
+
+                                connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);
+                                if (noAnswer != null)
+                                {
+                                    if (noAnswer != "true")
+                                    {
+                                        connection.WriteStream(JsonSerializer.Serialize(result));
+                                    }
+                                }
+                                else
+                                {
+                                    connection.WriteStream(JsonSerializer.Serialize(result));
+                                }
+                            }
+                            else
+                            {
+                                connection.SendHeaders(httpVersion, 405, "Method Not Allowed", contentType, contentEncoding, 0);
+                                connection.WriteStream("ERROR: specify the sessionID");
+                            }
+                        }
+                        else if (type == "wordrequest")
+                        {
+                            string? sessionID = parsed.Get("sessionID");
+                            if (sessionID != null)
+                            {
+                                UserWordRequest result = new UserWordRequest();
+                                result.result = false;
+
+                                Guid guid;
+                                if (Guid.TryParse(sessionID, out guid))
+                                {
+                                    bool found = false;
+                                    foreach (var session in sessions)
+                                    {
+                                        if (session.Value.GetSessionID() == guid)
+                                        {
+                                            result = requests.HandleWordRequest();
+                                        }
+                                    }
+
+                                    if (!found)
+                                    {
+                                        result.message = "ERROR: sessionID not found";
+                                    }
+                                }
+                                else
+                                {
+                                    result.message = "ERROR: bad GUID";
                                 }
 
                                 connection.SendHeaders(httpVersion, 200, "OK", contentType, contentEncoding, 0);

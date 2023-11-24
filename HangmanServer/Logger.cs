@@ -10,7 +10,7 @@ namespace HangmanServer
 {
     internal class Logger
     {
-        private static FileStream stream;
+        private static FileStream? stream;
 
         public static void InitialiseLogger()
         {
@@ -29,7 +29,7 @@ namespace HangmanServer
         
         public static void ShutdownLogger()
         {
-            stream.Close();
+            stream!.Close();
         }
 
         public static void Log(int severity, string message)

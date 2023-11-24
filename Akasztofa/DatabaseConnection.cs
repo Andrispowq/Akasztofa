@@ -17,6 +17,7 @@ namespace Akasztofa
         public class RequestResult
         {
             public bool result { get; set; }
+            public string message { get; set; } = "";
         }
 
         public class UserExistsRequest : RequestResult { }
@@ -46,6 +47,11 @@ namespace Akasztofa
 
         public class ClientDisconnectRequest : RequestResult { }
 
+        public class UserWordRequest : RequestResult
+        {
+            public string word { get; set; } = "";
+        }
+
         private HttpClient client;
 
         public string connectionID;
@@ -69,59 +75,91 @@ namespace Akasztofa
             return Convert.ToBase64String(bytes);
         }
 
+        public T TryDeserialize<T>(string json)
+        {
+            try
+            {
+                T? t = JsonSerializer.Deserialize<T>(json);
+                if(t != null)
+                {
+                    return t;
+                }
+                else
+                {
+                    return default(T);
+                }
+            }
+            catch(JsonException e)
+            {
+                return default(T);
+            }
+        }
+
         public ClientConnectRequest? ConnectClient(string clientID)
         {
             string query = "?type=connect&clientID=" + clientID;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<ClientConnectRequest>(result);
+            return TryDeserialize<ClientConnectRequest>(result);
         }
 
         public ClientDisconnectRequest? DisconnectClient(string connectionID)
         {
             string query = "?type=disconnect&connectionID=" + connectionID;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<ClientDisconnectRequest>(result);
+            return TryDeserialize<ClientDisconnectRequest>(result);
         }
 
         public UserExistsRequest? UserExists(string connectionID, string username)
         {
             string query = "?type=exists&connectionID=" + connectionID + "&username=" + username;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<UserExistsRequest>(result);
+            return TryDeserialize<UserExistsRequest>(result);
         }
 
         public UserCreationRequest? CreateUser(string connectionID, string username, string password)
         {
             string query = "?type=create&connectionID=" + connectionID + "&username=" + username + "&password=" + password;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<UserCreationRequest>(result);
+            return TryDeserialize<UserCreationRequest>(result);
         }
 
         public UserLoginRequest? LoginUser(string connectionID, string username, string password)
         {
             string query = "?type=login&connectionID=" + connectionID + "&username=" + username + "&password=" + password;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<UserLoginRequest>(result);
+            return TryDeserialize<UserLoginRequest>(result);
         }
 
         public UserUpdateRequest? UpdateUser(string sessionID, string data_encrypted)
         {
             string query = "?type=update&sessionID=" + sessionID + "&data=" + data_encrypted;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<UserUpdateRequest>(result);
+            return TryDeserialize<UserUpdateRequest>(result);
         }
 
         public UserLogoutRequest? LogoutUser(string sessionID)
         {
             string query = "?type=logout&sessionID=" + sessionID;
             string result = GetRequest(query);
-            return JsonSerializer.Deserialize<UserLogoutRequest>(result);
+            return TryDeserialize<UserLogoutRequest>(result);
+        }
+
+        public UserWordRequest? RequestWord(string sessionID)
+        {
+            string query = "?type=wordrequest&sessionID=" + sessionID;
+            string result = GetRequest(query);
+            return TryDeserialize<UserWordRequest>(result);
         }
 
         private string GetRequest(string query)
-        {
+        { 
             Task<HttpResponseMessage> response = client.GetAsync(query);
             while (!response.IsCompleted);
+
+            if(response.Status == TaskStatus.Faulted)
+            {
+                return "";
+            }
 
             Task<string> result = response.Result.Content.ReadAsStringAsync();
             while (!result.IsCompleted);

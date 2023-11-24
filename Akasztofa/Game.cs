@@ -13,7 +13,6 @@ namespace Akasztofa
     internal class Game
     {
         private const string ValidInputs = "!&'*,./0123456789:;<>?\\abcdefghijklmnopqrstuvwxyz~­áäéëíóöúüőťű";
-        private string[]? words_array = null;
 
         private DatabaseConnection dbc;
         private User? user = null;
@@ -33,6 +32,11 @@ namespace Akasztofa
                 parameters.Exponent = result.exponent;
                 parameters.Modulus = result.modulus;
                 dbc.rsa = RSA.Create(parameters);
+            }
+            else
+            {
+                Console.WriteLine("ERROR: couldn't connect to the server at address {0}:{1}", configData.serverIP, configData.serverPort);
+                Environment.Exit(-1);
             }
         }
 
@@ -96,7 +100,13 @@ namespace Akasztofa
             Console.Clear();
             Console.SetCursorPosition(0, 0);
 
-            string word = GetWord();
+            DatabaseConnection.UserWordRequest? userWordRequest = dbc.RequestWord(user!.SessionID);
+            if(userWordRequest == null)
+            {
+                return;
+            }
+
+            string word = userWordRequest.word;
             List<char> guesses = new List<char>();
             guesses.Add(' ');
             guesses.Add('-');
@@ -212,30 +222,6 @@ namespace Akasztofa
 
             Console.WriteLine();
             return complete;
-        }
-
-        string GetWord()
-        {
-            if(words_array == null)
-            {
-                if (File.Exists("magyar-szavak.txt"))
-                {
-                    string words = File.ReadAllText("magyar-szavak.txt");
-                    words_array = words.Split('\n');
-                }
-                else
-                {
-                    return "hiányzószavakfájl";
-                }
-            }
-
-            string word = words_array[new Random().Next(words_array.Length)].ToLower();
-            if(word.Last() == '\r')
-            {
-                word = word.Substring(0, word.Length - 1);
-            }
-
-            return word;
         }
     }
 }

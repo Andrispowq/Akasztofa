@@ -1,0 +1,25 @@
+
+body 
+{
+    font-family: Arial, sans-serif;
+}
+
+.login-page 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+.input-container 
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#response
+{
+    margin-top: 40px;
+}

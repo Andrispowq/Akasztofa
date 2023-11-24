@@ -29,7 +29,6 @@ namespace HangmanServer
 
             listener = new TcpListener(localAddr, port);
             listener.Start();
-            Console.WriteLine($"Web Server Running on {localAddr.ToString()} on port {port}... Press ^C to Stop...");
         }
 
         public void Close()

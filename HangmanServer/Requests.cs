@@ -13,6 +13,7 @@ namespace HangmanServer
         public class RequestResult
         {
             public bool result { get; set; }
+            public string message { get; set; } = "";
         }
 
         public class UserExistsRequest : RequestResult { }
@@ -31,6 +32,12 @@ namespace HangmanServer
             public string key { get; set; } = "";
             public string data { get; set; } = "";
         }
+
+        public class UserWordRequest : RequestResult
+        {
+            public string word { get; set; } = "";
+        }
+
         public class UserUpdateRequest : RequestResult { }
         public class UserLogoutRequest : RequestResult { }
 
@@ -57,12 +64,17 @@ namespace HangmanServer
             return result;
         }
 
-        public UserLoginRequest HandleUserLogin(Session session, string username, string password, out User? user)
+        public UserLoginRequest HandleUserLogin(Session session, string username, string password, out User? user, bool plain = false)
         {
             user = null;
             if (database.UserExists(username))
             {
-                string password_decrypted = session.Decrypt(password);
+                string password_decrypted = password;
+                if (!plain)
+                {
+                    password_decrypted = session.Decrypt(password);
+                }
+
                 string pass_try = database.SecurePassword(database.GetUserID(username), password_decrypted);
                 string hash = Crypto.GetHashString(pass_try);
                 database.TryLogin(username, hash, out user);
@@ -100,10 +112,15 @@ namespace HangmanServer
             return result;
         }
 
-        public UserCreationRequest HandleCreateUser(Session session, string username, string password)
+        public UserCreationRequest HandleCreateUser(Session session, string username, string password, bool plain = false)
         {
             User? user = null;
-            string password_decrypted = session.Decrypt(password);
+            string password_decrypted = password;
+            if (!plain)
+            {
+                password_decrypted = session.Decrypt(password);
+            }
+
             string secure_pass = database.SecurePassword(database.GetUserID(username), password_decrypted);
             bool res = database.CreateNewUser(username, secure_pass, out user);
 
@@ -121,6 +138,14 @@ namespace HangmanServer
                 result.data = user.data_encrypted;
             }
 
+            return result;
+        }
+
+        public UserWordRequest HandleWordRequest()
+        {
+            UserWordRequest result = new();
+            result.result = true;
+            result.word = Words.GetWord();
             return result;
         }
     }
