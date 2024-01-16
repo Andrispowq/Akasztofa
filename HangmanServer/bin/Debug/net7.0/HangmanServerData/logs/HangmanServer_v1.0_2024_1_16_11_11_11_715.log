@@ -1,0 +1,694 @@
+[2024_1_16_11_11_11_723] - LOG: Initialised logger
+[2024_1_16_11_11_11_741] - LOG: New request: GET /?type=connect&clientID=a25b5d66-b647-4e09-985e-79759df98a99 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_22_22_734] - LOG: New request: GET /?type=connect&clientID=154ba05b-6477-4f61-9ebf-bf947bbe36df HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_22_22_409] - LOG: New request: GET /?type=exists&connectionID=3815b093-ec80-46ed-8e96-3d51db44c239&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_22_22_932] - LOG: New request: GET /?type=connect&clientID=aa4a50d9-d9b7-4aee-b36d-6d57d49dba2d HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_335] - LOG: New request: GET /?type=connect&clientID=7081f0ea-4aa3-4ff2-8d5e-cabc1eaa5fbb HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_508] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_42] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_552] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_63] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_63] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_574] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_83] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_84] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_84] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_84] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispowq HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_606] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_118] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_119] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_623] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_623] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_624] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_189] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_189] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_701] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_23_23_702] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username= HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_269] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_288] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_288] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_796] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_818] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_328] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_836] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_346] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_857] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_858] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispowq HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_387] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_899] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_899] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_899] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_900] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_900] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_409] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_409] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_409] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_409] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username= HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_919] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=t HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_919] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=te HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_431] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=tes HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_431] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=test HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_958] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=tes HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_958] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=te HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_958] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=t HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_466] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username= HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_517] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=t HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_518] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=te HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_518] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=tes HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_518] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=test HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_560] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username=est HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_24_24_603] - LOG: New request: GET /?type=exists&connectionID=d69415db-7804-4984-8608-9ccf88ce22f9&username= HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_811] - LOG: New request: GET /?type=connect&clientID=0f8354dd-a910-45d2-bedf-5ba61f864c32 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_458] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_966] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_967] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_967] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_470] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_471] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_471] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_471] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_471] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_472] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispowq HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_501] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_8] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_520] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_520] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_521] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_28] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_29] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_29] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_540] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_540] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username= HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_94] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=t HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_601] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=te HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_601] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=tes HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_602] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=test HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_106] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=tes HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_106] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=te HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_107] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=t HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_618] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username= HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_618] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=A HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_618] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=An HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_129] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=And HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_130] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andr HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_130] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andri HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_130] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andris HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_130] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrisp HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_640] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispo HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_641] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_641] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispowq HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_11_26_26_659] - LOG: New request: GET /?type=exists&connectionID=7a5815f7-5a87-49fc-b151-5c9a3d67f0fc&username=Andrispow HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+

@@ -28,6 +28,9 @@ namespace HangmanServer
 
         private ConcurrentDictionary<Guid, Session> sessions;
         private bool exitThread = false;
+        private Thread th;
+
+        private Dictionary<string, Func<string[], int>> commandHandlers = new();
 
         public Server()
         {
@@ -40,11 +43,110 @@ namespace HangmanServer
 
             sessions = new ConcurrentDictionary<Guid, Session>();
 
-            Thread th = new Thread(new ThreadStart(ListenerThread));
+            th = new Thread(new ThreadStart(ListenerThread));
             th.Start();
 
             Console.WriteLine("Web Server Running on {0}:{1}... To exit, press the 'q' or 'e' keys...", config.config.serverIP, config.config.serverPort);
 
+            Func<string[], int> quitFunction = (string[] args) => 
+            {
+                exitThread = true;
+                th.Join();
+                Logger.ShutdownLogger();
+                connection.Close();
+                return 1;
+            };
+
+            Func<string[], int> helpFunction = (string[] args) =>
+            {
+                Console.WriteLine("Help panel:");
+                Console.WriteLine("\tq,quit,e,exit => shut the server down");
+                Console.WriteLine("\th,help => this panel");
+                Console.WriteLine("\tl,list => list active sessions");
+                Console.WriteLine("\td,disconnect => disconnect users");
+                return 1;
+            };
+
+            Func<string[], int> listFunction = (string[] args) =>
+            {
+                Console.WriteLine("Listing sessions...");
+                foreach (var sesh in sessions)
+                {
+                    Console.WriteLine("{0}", sesh.Value.ToString());
+                }
+                return 1;
+            };
+
+            Func<string[], int> discFunction = (string[] args) =>
+            {
+                if(args.Length == 0)
+                {
+                    args = new string[1] { "-h" };
+                }
+
+                Guid key = Guid.Empty;
+                string option = args[0];
+                switch(option)
+                {
+                    case "-all":
+                    case "-a":
+                        sessions.Clear();
+                        Console.WriteLine("Disconnected all sessions...");
+                        break;
+                    case "-session":
+                    case "-s":
+                        if(args.Length != 2)
+                        {
+                            Console.WriteLine("Disconnect -s: ERROR: too few arguments provided");
+                            return -1;
+                        }
+
+                        if(!Guid.TryParse(args[1], out key))
+                        {
+                            Console.WriteLine("Disconnect -s: ERROR: bad GUID provided");
+                            return -1;
+                        }
+
+                        if(sessions.ContainsKey(key))
+                        {
+                            sessions.Remove(key, out Session _);
+                            Console.WriteLine("Removed session {0}", key);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Disconnect -s: WARNING: provided session ID doesn't exist");
+                            return -1;
+                        }
+
+                        break;
+                    case "-help":
+                    case "-h":
+                        Console.WriteLine("Disconnect: ");
+                        Console.WriteLine("\t-a/all: disconnect all sessions");
+                        Console.WriteLine("\t-s/session <ID>: disconnect session with connetion ID <ID>");
+                        Console.WriteLine("\t-h/help: shows this page");
+                        break;
+                    default:
+                        Console.WriteLine("Disconnect: ERROR: unknown switch provided, use -h/help to see valid switches");
+                        return -1;
+                }
+
+                return 1;
+            };
+
+            commandHandlers.Add("q", quitFunction);
+            commandHandlers.Add("quit", quitFunction);
+            commandHandlers.Add("e", quitFunction);
+            commandHandlers.Add("exit", quitFunction);
+            commandHandlers.Add("h", helpFunction);
+            commandHandlers.Add("help", helpFunction);
+            commandHandlers.Add("l", listFunction);
+            commandHandlers.Add("list", listFunction);
+            commandHandlers.Add("d", discFunction);
+            commandHandlers.Add("disconnect", discFunction);
+            Console.Write("> ");
+
+            string curr_command = "";
             var then = DateTime.UtcNow;
             while (true)
             {
@@ -52,20 +154,28 @@ namespace HangmanServer
                 var diff = (now - then);
                 double delta = diff.TotalSeconds;
                 then = DateTime.UtcNow;
-
+                                
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey(true);
                     switch (key.Key)
                     {
-                        case ConsoleKey.Q:
-                        case ConsoleKey.E:
-                            exitThread = true;
-                            th.Join();
-                            Logger.ShutdownLogger();
-                            connection.Close();
+                        case ConsoleKey.Enter:
+                            Console.WriteLine();
+                            int result = HandleCommand(curr_command);
+                            Console.Write("> ");
+                            curr_command = "";
+                            break;
+                        case ConsoleKey.Backspace:
+                            if(curr_command != "")
+                            {
+                                curr_command = curr_command.Substring(0, curr_command.Length - 1);
+                                Console.Write("\b \b");
+                            }
                             break;
                         default:
+                            Console.Write(key.KeyChar);
+                            curr_command += key.KeyChar;
                             break;
                     }
                 }
@@ -91,7 +201,40 @@ namespace HangmanServer
                     Session? session;
                     sessions.Remove(ID, out session);
                 }
+
+                if(timeouts.Count > 0)
+                {
+                    Console.Write("> ");
+                }
             }
+        }
+
+        private int HandleCommand(string command)
+        {
+            if(command == "")
+            {
+                return -1;
+            }
+
+            string[] commandParts = command.Split(' ');
+            string[] args = new string[0];
+
+            if(commandParts.Length > 1)
+            {
+                args = command.Substring(commandParts[0].Length + 1).Split(' ');
+            }
+
+
+            if (commandHandlers.ContainsKey(commandParts[0]))
+            {
+                return commandHandlers[commandParts[0]](args);
+            }
+            else
+            {
+                Console.WriteLine("{0}: Unknown command, please use 'help' to see available commands...", command);
+            }
+
+            return -1;
         }
 
         private void ListenerThread()
@@ -154,6 +297,7 @@ namespace HangmanServer
                                         result.result = sessions.TryAdd(session.GetConnectionID(), session);
                                         result.connectionID = session.GetConnectionID();
                                         (byte[] exponent, byte[] modulus) = session.GetPublicKey();
+                                        string val = Encoding.ASCII.GetString(exponent);
                                         result.exponent = exponent;
                                         result.modulus = modulus;
                                     }

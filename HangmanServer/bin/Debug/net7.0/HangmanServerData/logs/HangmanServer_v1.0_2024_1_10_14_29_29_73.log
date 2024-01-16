@@ -1,0 +1,67 @@
+[2024_1_10_14_29_29_82] - LOG: Initialised logger
+[2024_1_10_14_29_29_240] - LOG: New request: GET /?type=connect&clientID=da4833e4-3d7a-47cb-8411-99aa86de5d42 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_29_29_685] - LOG: New request: GET /?type=connect&clientID=1f9e37ea-4b6b-4619-a6c6-cc404cfaeedb HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_29_29_326] - LOG: New request: GET /?type=login&connectionID=6311aea0-1a5d-4355-9142-1d1cc404146c&username=Andrispowq&password=PJsi0gXUpYlkNqy5tVd/WTyTRFCvVTXESoOAZQWSzsIHNwhRuOGCriiHtdIvEy6/UPZArJ92ksUqYBm9oeIww3Kj68eHCAYBFpzH/9gfegIlwEjzlJKxkiNuOkulxXxkAhC7GZ65mVQYta/OVoUoFKRiqVoL97J4dwTGZ0kTEL98Sehi/modMj6MR0WCoSlorx8F5BD144lX0/q+mbV/eJMIfA9wd76dj3t4YqQNgJibFZVlRbPhNMpeXGP1ko/rUsIFzg1bfBNItXCw0Vmw+LI0BFpDhlA/luSEWZagsyh32BzeUZFmcncupZCbUiDZaVtVRGZseOzM7tJrr3J+Mw== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_30_30_893] - LOG: New request: GET /?type=connect&clientID=afb4910f-e329-4565-bdd8-5c7d4218118e HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_30_30_993] - LOG: New request: GET /?type=connect&clientID=2f5a42c4-efd9-41fd-bbee-98e507cd22cc HTTP/1.1
+Host: 192.168.100.20:6969
+
+
+[2024_1_10_14_30_30_628] - LOG: New request: GET /?type=exists&connectionID=ae219697-ff7a-4d82-ab85-e6366f86e8d4&username=Andrispowq HTTP/1.1
+Host: 192.168.100.20:6969
+
+
+[2024_1_10_14_31_31_465] - LOG: New request: GET /?type=login&connectionID=ae219697-ff7a-4d82-ab85-e6366f86e8d4&username=Andrispowq&password=MaF5npTpSqqELjElPsXGXk7YKTapm6L/L8PdjQ/sgqKBSvHE9NLUAdVTUWYSqkL58IPjBRFBCN6p1lwuCeo0UvDQ5TMykt7qlUx1uALZRE7KQl9fQ6i8svP3oPYmWIZgPapdEspOBF6T+phdogOfiwfF0u4B5kwcmI3Ug7mcyOfi4Y2VbApV2KKH0QhSPIXqbnQA4DKUYxJ6aGu3tOhGQN2JilHmMcvsq8xeGQgNdbnpjlE4r7dGMeCwIHYWcuZ0fwXbFMEPyelMzzAPBeGfOZddue6crx2/QIBp7NkhomC2D9Y8xciUBjOzn59L0oF07EoVGT11HLedyQwpvXvFiQ== HTTP/1.1
+Host: 192.168.100.20:6969
+
+
+[2024_1_10_14_31_31_526] - LOG: New request: GET /?type=wordrequest&sessionID=18e9f315-b614-4395-ad94-328b25e3c518 HTTP/1.1
+Host: 192.168.100.20:6969
+
+
+[2024_1_10_14_32_32_828] - LOG: New request: GET /?type=connect&clientID=ce6718d2-d565-4eeb-938a-0a1c7b2755ef HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_32_32_401] - LOG: New request: GET /?type=login&connectionID=2ef4a85f-5cb7-49c9-8f26-572ff8036075&username=Andrispowq&password=CNqqGmjIhCOWLRfH602R6koHpt+pH63DMH68KVKjZDSkvHEjAG1ATACt8VTU07lkCBq2l6n+yERp5OENO5PEeYpNN3SsYgJxulHklS3B0fG/i+L7XkT3GOTnFThYOE3LWmkSu/pepe0foJ/bxWvRsvcp38tpf4LmUKKQQERRI8Ww6QRlmx82tF70AfHrBUeO0g7e46PlJy/RgLZ9T2uTc3ffDK0DrQos9IW6gNTM57O0r0eSw87PqwXgSH2Jv6KILueIxfXp9wUFMEcUHWkIIb1aszEROv000ZXi70veZBS9pQeR2SYQ7HMaqbXJolgm88sPr38XgmOm5ScoKortEw== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_34_34_230] - LOG: New request: GET /?type=connect&clientID=6364c303-65bc-4459-89d3-33c398aed5c0 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_14_34_34_866] - LOG: New request: GET /?type=login&connectionID=19d53f88-80f9-403c-b126-307a64fa10a3&username=Andrispowq&password=Nqp4iNjDS+QfUjMn1g2FC/f0sEUVGW4Elasy4v3/r6cLDo7kLEniWl1wGQzXMla9a2AUJwoZtlGGuahRfWte83bypTy0FmGqXHSy13lGv

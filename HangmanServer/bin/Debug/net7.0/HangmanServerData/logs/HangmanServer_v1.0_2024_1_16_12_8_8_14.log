@@ -1,0 +1,88 @@
+[2024_1_16_12_8_8_24] - LOG: Initialised logger
+[2024_1_16_12_8_8_649] - LOG: New request: GET / HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_741] - LOG: New request: GET /website/styles.css HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_252] - LOG: New request: GET /website/hangman.js HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: */*
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_759] - LOG: New request: GET /?type=connect&noanswer=true&clientID=67d94517-b636-4220-9373-8355278432d0 HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_843] - LOG: New request: GET /favicon.ico HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_500] - LOG: New request: GET /?type=login&plain=true&connectionID=0b08020b-5c2f-476f-b932-d34f4468104c&username=Andrispowq&password=password HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_39] - LOG: New request: GET /?type=logout&noanswer=true&sessionID=518ac2a9-9503-45d3-8498-eb2f9c9f6fcc HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_546] - LOG: New request: GET /website/game.html HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_16_12_8_8_581] - LOG: New request: GET /website/game.css HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: 

@@ -86,12 +86,12 @@ namespace Akasztofa
                 }
                 else
                 {
-                    return default(T);
+                    return default;
                 }
             }
             catch(JsonException e)
             {
-                return default(T);
+                return default;
             }
         }
 
@@ -152,9 +152,9 @@ namespace Akasztofa
         }
 
         private string GetRequest(string query)
-        { 
+        {
             Task<HttpResponseMessage> response = client.GetAsync(query);
-            while (!response.IsCompleted);
+            while (!response.IsCompleted) ;
 
             if(response.Status == TaskStatus.Faulted)
             {

@@ -84,7 +84,7 @@ namespace Akasztofa
                 {
                     Console.Write("Please enter your password: ");
                     string pass_try = Utils.GetPassword();
-                    string encrypted_pass = dbc.EncryptPassword(pass_try);
+                     string encrypted_pass = dbc.EncryptPassword(pass_try);
 
                     DatabaseConnection.UserLoginRequest? login = dbc.LoginUser(dbc.connectionID, username, encrypted_pass);
                     if (login != null)

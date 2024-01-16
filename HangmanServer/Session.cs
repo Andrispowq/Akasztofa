@@ -94,5 +94,26 @@ namespace HangmanServer
         {
             return timeout < 0.0;
         }
+
+        public override string ToString()
+        {
+            string str = "Session (clientID: " + clientID.ToString() + ", timeout: " + timeout.ToString("0.00s") + ")";
+            str += "\n\tConnectionID: " + connectionID.ToString();
+
+            str += "\n\tUser logged in: ";
+            if (sessionID == Guid.Empty)
+            {
+                str += "null";
+            }
+            else
+            {
+                str += "\n\t\tConnectionID: " + connectionID.ToString();
+                str += "\n\t\tUsername: " + userData.username;
+                str += "\n\t\tUserID: " + userData.ID;
+                str += "\n\t\tPassword hash: " + userData.password_hash2;
+            }
+
+            return str;
+        }
     }
 }

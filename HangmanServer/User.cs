@@ -85,18 +85,7 @@ namespace Akasztofa
         {
             this.password_hash2 = Crypto.GetHashString(password_hash1);
 
-            long currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            int seed = (int)(currentTimeMillis % int.MaxValue);
-            Random random = new Random(seed);
-            byte[] key = new byte[128];
-            string key_string = "";
-            for (int i = 0; i < key.Length; i++)
-            {
-                key[i] = (byte)random.Next(256);
-                key_string += key[i].ToString("X2");
-            }
-
-            this.decrypted_key = key_string;
+            this.decrypted_key = Utils.GenerateEncryptionKey();
             this.encryption_key = Crypto.Encrypt(decrypted_key, password_hash1, ID);
             Console.WriteLine("Orignial: " + decrypted_key + ", Encrypted: " + encryption_key + ", Hash: " + password_hash1 + ", ID: " + ID);
         }

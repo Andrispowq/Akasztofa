@@ -1,0 +1,22 @@
+[2024_1_16_9_44_44_983] - LOG: Initialised logger
+[2024_1_16_9_44_44_118] - LOG: New request: GET /?type=connect&clientID=a3b439d7-fc7a-4920-8434-d2f084d465be HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_9_46_46_213] - LOG: New request: GET /?type=connect&clientID=a6597e63-c977-4985-8157-21c3de89d130 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_16_9_46_46_621] - LOG: New request: GET /?type=connect&clientID=303f3709-a001-4f4d-b165-8b3d753624f9 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+

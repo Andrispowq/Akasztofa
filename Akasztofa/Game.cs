@@ -21,21 +21,46 @@ namespace Akasztofa
         private Game()
         {
             configData = Config.LoadConfigData("config.json");
-            dbc = new DatabaseConnection(configData.serverIP, configData.serverPort);
 
-            DatabaseConnection.ClientConnectRequest? result = dbc.ConnectClient(configData.clientID);
-            if(result != null)
+            bool quit = false;
+            bool good = false;
+            do
             {
-                dbc.connectionID = result.connectionID.ToString();
+                dbc = new DatabaseConnection(configData.serverIP, configData.serverPort);
 
-                RSAParameters parameters = new RSAParameters();
-                parameters.Exponent = result.exponent;
-                parameters.Modulus = result.modulus;
-                dbc.rsa = RSA.Create(parameters);
+                DatabaseConnection.ClientConnectRequest? result = dbc.ConnectClient(configData.clientID);
+                if (result != null)
+                {
+                    dbc.connectionID = result.connectionID.ToString();
+
+                    RSAParameters parameters = new RSAParameters();
+                    parameters.Exponent = result.exponent;
+                    parameters.Modulus = result.modulus;
+                    dbc.rsa = RSA.Create(parameters);
+                    quit = true;
+                    good = true;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: couldn't connect to the server at address {0}:{1}", configData.serverIP, configData.serverPort);
+                    Console.WriteLine("Do you want to reconfigure the connection endpoint? (y/n)");
+                    string line = Console.ReadLine()!;
+                    if (line == "y" || line == "yes" || line == "Y")
+                    {
+                        (string ip, int port) = Utils.ReconfigureEndpoint();
+                        configData.serverIP = ip;
+                        configData.serverPort = port;
+                    }
+                    else
+                    {
+                        quit = true;
+                    }
+                }
             }
-            else
+            while (!quit);
+
+            if (!good)
             {
-                Console.WriteLine("ERROR: couldn't connect to the server at address {0}:{1}", configData.serverIP, configData.serverPort);
                 Environment.Exit(-1);
             }
         }

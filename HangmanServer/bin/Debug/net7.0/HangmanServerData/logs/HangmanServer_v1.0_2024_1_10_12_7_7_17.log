@@ -1,0 +1,96 @@
+[2024_1_10_12_7_7_24] - LOG: Initialised logger
+[2024_1_10_12_7_7_632] - LOG: New request: GET /?type=connect&clientID=099e8950-c0e1-4f0f-9ac4-844e8b80b4ac HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_8_8_533] - LOG: New request: GET /?type=connect&clientID=cf4e8d2c-0e9e-4af8-87fd-368352d96300 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_10_10_617] - LOG: New request: GET /?type=connect&clientID=2b649baa-0540-42bb-a24f-5b2b9a8e2ea2 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_11_11_518] - LOG: New request: GET /?type=connect&clientID=0c893303-ad68-46b5-b808-df1aae25f058 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_16_16_767] - LOG: New request: GET /?type=connect&clientID=7f8f42ad-1d13-46a1-8558-869780c013db HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_18_18_757] - LOG: New request: GET /?type=connect&clientID=54c4f7dc-7d18-47b8-8e60-3153a5e1f13c HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_25_25_121] - LOG: New request: GET /?type=connect&clientID=12f255cf-bafe-463f-9785-1a2369918911 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_25_25_181] - LOG: New request: GET /?type=connect&clientID=33e3acd9-d112-4691-8f21-223c11dd2311 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_44_44_155] - LOG: New request: GET /?type=connect&clientID=f1edc6f6-c8e5-49bd-b03e-f0ae2afb533d HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_12_45_45_783] - LOG: New request: GET /?type=connect&clientID=1375114a-cd79-481a-bc9d-634583b33fe8 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_13_31_31_337] - LOG: New request: GET /?type=connect&clientID=1fc03521-9fa4-4c84-a560-8325f5edb83b HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_13_32_32_644] - LOG: New request: GET /?type=connect&clientID=db1eca7e-d95a-4af9-a58c-459c3acddd3f HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_13_35_35_192] - LOG: New request: GET /?type=connect&clientID=c7180f08-fb39-4c3f-b9c5-67c19fa00b2c HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_13_39_39_273] - LOG: New request: GET /?type=connect&clientID=e3983c5e-c890-459d-82ec-57b63ef19b3b HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Ke

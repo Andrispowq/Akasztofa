@@ -1,29 +1,38 @@
-/* Add your styles here */
-/* Styles are just placeholders for demonstration purposes */
-body {
+
+body 
+{
     font-family: Arial, sans-serif;
 }
 
-.hangman-container {
-    text-align: center;
+.hangman-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
     margin-top: 50px;
 }
 
-.word-display {
+.word-display 
+{
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.input-container {
+.input-container 
+{
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+input[type="text"] 
+{
     padding: 5px;
     width: 30px;
 }
 
-button {
+button 
+{
     padding: 5px 10px;
     cursor: pointer;
     background-color: #007bff;
@@ -32,10 +41,12 @@ button {
     border-radius: 4px;
 }
 
-button:hover {
+button:hover 
+{
     background-color: #0056b3;
 }
 
-.guessed-letters {
+.guessed-letters 
+{
     margin-top: 20px;
 }

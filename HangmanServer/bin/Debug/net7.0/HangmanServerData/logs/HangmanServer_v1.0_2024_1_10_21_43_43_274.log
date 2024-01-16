@@ -1,0 +1,105 @@
+[2024_1_10_21_43_43_284] - LOG: Initialised logger
+[2024_1_10_21_43_43_333] - LOG: New request: GET /?type=connect&clientID=d14376fe-5355-481d-9624-67711287f29c HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_21_43_43_89] - LOG: New request: GET /?type=connect&clientID=041bb008-0696-4291-8aa1-ab559a1d8f53 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_21_44_44_676] - LOG: New request: GET /?type=connect&clientID=35aad2f2-39fc-4d85-a0fb-4e0e8440ee52 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_21_44_44_270] - LOG: New request: GET /?type=connect&clientID=454d120f-4974-4f4d-b4b1-def596a2d648 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_21_46_46_685] - LOG: New request: GET /?type=connect&clientID=972c1db7-6470-4219-be72-edec10f76ebc HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_21_46_46_665] - LOG: New request: GET /?type=connect&clientID=972c1db7-6470-4219-be72-edec10f76ebc HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_10_21_46_46_314] - LOG: New request: GET /favicon.ico HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.100.20:6969/?type=connect&clientID=972c1db7-6470-4219-be72-edec10f76ebc
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_10_21_47_47_494] - LOG: New request: GET /?type=connect&clientID=033f322f-f545-41ee-ba3e-e79b1d76ab34 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_22_10_10_79] - LOG: New request: GET /?type=connect&clientID=c25357d9-1e39-4ea8-a50a-800d23425c5b HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_22_11_11_158] - LOG: New request: GET /?type=connect&clientID=f2bd2791-714f-4a2a-8fd1-192f971f3249 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_22_11_11_910] - LOG: New request: GET /?type=connect&clientID=2c189ee4-dbac-4388-9389-295be7545a2d HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_22_12_12_779] - LOG: New request: GET /?type=connect&clientID=fce151bb-2b54-4c09-b397-c5ddd0fad187 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_22_25_25_949] - LOG: New request: GET /?type=connect&clientID=094d5b5b-2be1-44a6-a438-fb5db6ba14fe HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_10_22_25_25_507] - LOG: New request: GET /?type=login&connectionID=81eeb37f-48e7-41c3-a503-aaa48d63f4c3&username=Andrispowq&password=kxzGnoGd6ble/+AHOQCiv53U3l/IPNOreeXyYjhsKpQ0NKB+TTUdVzwOdRbWIVPl8m7ps5lj40vz7qt3n+BYL7WPLOKcapqEAJmxEWDm6VnaeU3uoPQ9WV3XVbjvB9aTNpTaAHiQkCQsU+Ir426P5XIfC7Iveb5CntsQ0rvbLZOld3WsHk+KpWeHdlBQ/58uXE7O3TbwRq8yMP3AHSk+J7MxQwavM/D2v2qY3WadxIFZhXcAKS7RPKY+9xZFLpA/o2C1zIqtUG8+9B6c/wa9D0HsDl63actFgeaUsjRLpkKnAMVAFwmP6gV226lOrwJC0nURrmgQICrtBXtPQRYWsw== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+

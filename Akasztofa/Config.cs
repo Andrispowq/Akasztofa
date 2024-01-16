@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Akasztofa
 {
@@ -35,11 +36,16 @@ namespace Akasztofa
                 data.serverPort = DefaultServerPort;
                 data.clientID = Guid.NewGuid().ToString();
 
-                string json = JsonSerializer.Serialize(data);
-                File.WriteAllText(configFile, json);
+                SerialiseConfigData(configFile, data);
             }
 
             return data;
+        }
+
+        public static void SerialiseConfigData(string configFile, ConfigData data)
+        {
+            string json = JsonSerializer.Serialize(data);
+            File.WriteAllText(configFile, json);
         }
     }
 }

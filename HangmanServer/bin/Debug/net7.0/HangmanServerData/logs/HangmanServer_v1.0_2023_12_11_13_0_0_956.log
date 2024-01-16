@@ -1,0 +1,5 @@
+[2023_12_11_13_0_0_963] - LOG: Initialised logger
+[2023_12_11_13_0_0_2] - LOG: New request: GET /?type=connect&clientID=2f5a42c4-efd9-41fd-bbee-98e507cd22cc HTTP/1.1
+Host: 192.168.100.20:6969
+
+

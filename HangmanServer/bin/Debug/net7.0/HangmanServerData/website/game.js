@@ -6,42 +6,60 @@ let guessedWord = Array(chosenWord.length).fill('_');
 let guessesLeft = 6;
 let guessedLetters = [];
 
-function displayWord() {
+main();
+
+function displayWord() 
+{
     document.getElementById('wordDisplay').innerText = guessedWord.join(' ');
 }
 
-function displayGuessedLetters() {
+function displayGuessedLetters() 
+{
     document.getElementById('guessedLetters').innerText = 'Guessed Letters: ' + guessedLetters.join(', ');
 }
 
-function guessLetter() {
+function guessLetter() 
+{
     let input = document.getElementById('guessInput').value.toUpperCase();
     document.getElementById('guessInput').value = ''; // Clear input field after guess
 
-    if (input.length !== 1 || guessedLetters.includes(input)) {
-        alert('Please enter a single letter or a letter you have not guessed yet.');
-        return;
-    }
-
-    guessedLetters.push(input);
-
-    if (chosenWord.includes(input)) {
-        for (let i = 0; i < chosenWord.length; i++) {
-            if (chosenWord[i] === input) {
-                guessedWord[i] = input;
+    for(let j = 0; j < input.length; j++)
+    {
+        const c = input[j];
+        if (guessedLetters.includes(c)) 
+        {
+            alert('Please enter a single letter or a letter you have not guessed yet.');
+            return;
+        }
+    
+        guessedLetters.push(c);
+    
+        if (chosenWord.includes(c)) 
+        {
+            for (let i = 0; i < chosenWord.length; i++) 
+            {
+                if (chosenWord[i] === c)
+                {
+                    guessedWord[i] = c;
+                }
             }
         }
-    } else {
-        guessesLeft--;
+        else 
+        {
+            guessesLeft--;
+        }
     }
 
     displayWord();
     displayGuessedLetters();
 
-    if (guessesLeft === 0) {
+    if (guessesLeft === 0) 
+    {
         alert('You lost! The word was: ' + chosenWord);
         resetGame();
-    } else if (!guessedWord.includes('_')) {
+    } 
+    else if (!guessedWord.includes('_')) 
+    {
         alert('Congratulations! You guessed the word: ' + chosenWord);
         resetGame();
     }
@@ -49,7 +67,8 @@ function guessLetter() {
     document.getElementById('guessesLeft').innerText = guessesLeft;
 }
 
-function resetGame() {
+function resetGame() 
+{
     chosenWord = words[Math.floor(Math.random() * words.length)];
     guessedWord = Array(chosenWord.length).fill('_');
     guessesLeft = 6;
@@ -59,4 +78,16 @@ function resetGame() {
     displayGuessedLetters();
     document.getElementById('guessesLeft').innerText = guessesLeft;
 }
-displayWord();
+
+function main()
+{
+    window.addEventListener('keypress', function (e) 
+    {
+        if (e.key === 'Enter') 
+        {
+            guessLetter();
+        }
+    });
+
+    displayWord();
+}

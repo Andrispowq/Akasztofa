@@ -1,0 +1,57 @@
+[2024_1_15_21_33_33_750] - LOG: Initialised logger
+[2024_1_15_21_33_33_286] - LOG: New request: GET /?type=connect&clientID=de00b039-a9a7-4bbc-a7cb-30589ffafeda HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_33_33_979] - LOG: New request: GET /?type=login&connectionID=1c222ed6-dd72-4b81-9fe0-1fbdd44f1bab&username=Andrispowq&password=zyKj+zGQNcLxzPQ8s4mahK4Ta1oNcWKOtfAXgWNJ2z2hg99jgzG9h0twsEPuPx07dd7FVNgtxwV/V8Pun93mxhgTuElLrIq/vhyglkVjg51iS7ZlT+aqfVmjxIGLkUwY0JDg9PYQVtPGA28A8N7Y9EiPqlYKSQkVmePeb0J0oqRaMf4dUpJywt8QnwNpuapG/ZlmqxV3/uN34T5cfVNssTf8Yb60IXPOiMQ6u0G0J1pgtz/7lErPDA3YkY9qFZyHrhoUw5s9ta3vTOMVQx5QnvmqWVPBK77HMPqtWLuO6jR8K/aTvE3SFABcd8l6MuSbQNI1OFbYfpM8Q5sfZyjI6Q== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_33_33_642] - LOG: New request: GET /?type=logout&sessionID=a6c19688-d228-4017-9d84-561329d763d4 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_33_33_324] - LOG: New request: GET /?type=disconnect&connectionID=1c222ed6-dd72-4b81-9fe0-1fbdd44f1bab HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_34_34_245] - LOG: New request: GET /?type=connect&clientID=b041a458-b500-4a62-8be7-d8224a83125d HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_34_34_46] - LOG: New request: GET /?type=login&connectionID=5dd22233-41cf-47c6-84d4-d4635c5021a6&username=Andrispowq&password=VWDrqWPDUp+HY79n7hlNvvwdFq1/dQUimXknBRtLXJiyhISbmLZhhnZYWx9AZSFon9i490UmK22OH4HICX1uY38iE5f0d40OjMQujtEnBQUk7A65crVFYQlFNbs1Ss8PGyQ9hMAvz9IxxBf53WylqzRRY8Hp16XVu+i4FJYckQbmI28C7K89e/p8YcunHAwDSDk7GaceWOXN3FrmXwoWO7i6EezsxZDOEbvHug071eykjMh9jTBkiGy+72dz81dUoftEoi1ZXzeysw3ULL/ewtfUwFJF3LtGyJw+rhNchdTv1/Yur5Lk6PqIy4GxuNf4LWVig/026d6ghmVdSI0wLw== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_34_34_416] - LOG: New request: GET /?type=logout&sessionID=27b72735-9780-413a-8ed8-8aee1b382f11 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_15_21_34_34_568] - LOG: New request: GET /?type=disconnect&connectionID=5dd22233-41cf-47c6-84d4-d4635c5021a6 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+

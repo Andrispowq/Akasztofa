@@ -1,0 +1,346 @@
+[2024_1_11_13_11_11_335] - LOG: Initialised logger
+[2024_1_11_13_11_11_434] - LOG: New request: GET /?type=connect&clientID=63782819-3939-4c50-8c54-5536270e3b33 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_11_11_72] - LOG: New request: GET /?type=login&connectionID=959a8e7a-ec57-4652-a524-58d23933cc97&username=Andrispowq&password=TkS/nC7Ltgl3xRsKnAcFnzrN4+JJmMdi5n2Y0Y5sANhG9jewD5sjsq3riLs3z4BFss35EdsBgYLpxUhVBWUpADFCIVyjBCJRhKh4DzFMZQEs+fZAwDcu12AN8jDemP3rlvhN0fcN8XXfSgg7WWHe8ItkvSrW8/UPItRS/gO7OPT5sm+eZKcsmoc+76V2qpCEzptJfHgF39+X6NDUrgy9KJVZBQ/ftuwuwASmXmwIUq6w/7Z4bDNC4uyc4tKItTlS7ZHCTCOJK6gERW0zeWjwc+kH+Mp4b0+rNe0GY2Z07MgGnnGu4ryvP6GmZLZYYsmg+aoGQlIjcfuA7N0XPmi91A== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_37_37_375] - LOG: New request: GET /?type=connect&clientID=b4e42bcd-a45f-4c7f-a2ff-c7dac85d9c5c HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_37_37_864] - LOG: New request: GET /?type=connect&clientID=10e1e0d4-59a4-40ef-aa2e-c0e089e882a0 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_38_38_988] - LOG: New request: GET /?type=connect&clientID=b1e29d17-2a99-429d-beac-3e5cb9a28fc3 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_46_46_724] - LOG: New request: GET /?type=connect&clientID=b746cd5c-01a1-48f1-8a98-3a6c4c6ffe4d HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_46_46_630] - LOG: New request: GET /?type=disconnect&connectionID=04ae56a7-cbc6-4904-8a78-7d8b361664f8 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_47_47_317] - LOG: New request: GET /?type=connect&clientID=5c762733-7d90-4e38-a468-0599c6bd8ef7 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_47_47_579] - LOG: New request: GET /?type=connect&clientID=87ee7d52-7474-4393-89e5-b8747ae144c7 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_52_52_502] - LOG: New request: GET /?type=connect&clientID=70c768f6-0e96-4702-bb22-858ed08b6787 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_52_52_329] - LOG: New request: GET /?type=connect&clientID=63f014f6-40c2-4240-a528-400ff5db65c3 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_53_53_582] - LOG: New request: GET /?type=connect&clientID=ffe08bfe-6ae2-4461-be1e-97e47d03e9b1 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_53_53_184] - LOG: New request: GET /?type=disconnect&connectionID=81096d45-2ad6-42fb-a704-611003f0d20e HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_53_53_8] - LOG: New request: GET /?type=connect&clientID=8f0301ba-03bd-470e-8eaf-ec59e9bedf65 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_53_53_636] - LOG: New request: GET /?type=disconnect&connectionID=08e5422a-3837-492a-b506-4e3c65f377dc HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_55_55_727] - LOG: New request: GET /?type=connect&clientID=52cb2960-1fe3-4c3f-abe8-ff507454063b HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_55_55_376] - LOG: New request: GET /?type=connect&clientID=ec1bd08b-3f2b-431d-9e03-c007aea831a8 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_55_55_644] - LOG: New request: GET /?type=connect&clientID=e3a62bf7-061c-4e2a-8947-b07841d19e8a HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_56_56_624] - LOG: New request: GET /?type=connect&clientID=c682f1cf-ea28-49f3-b1b8-5da698486d54 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_56_56_464] - LOG: New request: GET /?type=connect&clientID=2f1504a1-611d-410b-addb-eb0757c2c4cc HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_57_57_24] - LOG: New request: GET /?type=connect&clientID=28763abf-7348-48a3-bc5c-55ed52e6fb23 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_57_57_179] - LOG: New request: GET /?type=connect&clientID=5fede59a-f86f-411c-8cf3-896216bae57e HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_57_57_844] - LOG: New request: GET /?type=login&connectionID=d976d330-9a3f-4d3a-8c94-ed5c82b8987b&username=Andrispowq&password=aUpyK8mxv/wETXOnlDsg0XthmYBAHN7W+SBIaQarXQ8VuD6UkEJZY4EFxKDTuwcO2oy9FSUhvcxt9fs4tEckhIAUfBuf9cBSuj7S0Ci8rnWbLro8dJuiohZUB1lJfrv98IXJUSS/L0JnjtuYsRO65vc3QqzP/TGCuwJf+ypNZremQ61G1KZEYrvguapCGCCa80li8pUQAPzF4v+/lxmn5PvuObBjK7i+U19Xvsb9d+oYLrtxJFKKki3Vz89hSCffAO5QTj86c9lCOMmnFmh1H76fudDIF15JD+f44/vHtYmjdizGufnD+wMPspXiDZhptZqwDxMB8IUGz2d8jt5emQ== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_58_58_540] - LOG: New request: GET /?type=connect&clientID=4cea5604-4c08-48c8-baff-0c677924ee97 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_58_58_455] - LOG: New request: GET /?type=login&connectionID=e593b552-1d98-4981-b56b-a262d89d0aa0&username=Andrispowq&password=yXgZAn8WIPSAzb1nEBs55SKtzC5XruOrd97pM8GuswbeAJO2iz1Vvxq+ImtTsYeXql8AvSp9vwp0kkBZg+wa2Sn2nu9J9R/qYf31f3PW1nEB9pX4+mXsw0TeH4xalElVoD38h0t5oJppbZ+vPdObOsRHQFRrffjzDGfhTJIRjLJlW81A36pHw5VgNzmBfAgxMMOZ666zRC1GFH68pnrF5Rae21yrkGBnKWdgekOOM6050GrZ/Mtg72+Mgtpz2QGOqJ1AX9mTxpPLkwCSfig5rKz1JXhVBJoxRINJwUdsO5etnhA3dWuvew5ZnANquy1zoXSx0whRl4lkXkjusqF7aA== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_59_59_275] - LOG: New request: GET /?type=connect&clientID=c3f3628e-ecf5-4ca0-9277-c79b5f84d595 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_59_59_428] - LOG: New request: GET /?type=connect&clientID=c61099d5-8b2a-4185-bd3d-e3651638bc33 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_11_13_59_59_16] - LOG: New request: GET /?type=disconnect&connectionID=076a4588-9623-4d5b-a56b-08d4aba783b7 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_12_12_19_19_505] - LOG: New request: GET /?type=connect&clientID=e3c518af-cbf6-4abc-a126-370ce218e5bd HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_12_12_19_19_803] - LOG: New request: GET /?type=login&connectionID=6b066d96-1119-40ad-b95a-a4074b490479&username=Andrispowq&password=lpipEBjgofl5EYrZ8HYFm3oxOnQs0WW6zrftT6vLq9LTY3fU3+X/NiBz3girvIuqS2bwiH7meq0jilRWp9UMvPslG2LsEDFXU0dpAWcfJ/l6x4WlLo9HoCBdteNwubIXq1svfOks5+x0KwIl0U2fXVRLYeSU62NlkcnkZG2uzIWRsiDfYD+her297ptf6xq1YijNLVF4CugIQVDWCqBvkFfAu99jkqZ0bIHgPwM6s0Tl6K6Fn/48SJajiHVNz5XDzBct5dUQfLCxdDi8n1KIgHWz33teycc1VCZpOVzQpR69H+/JvyHycqGLp0x3Hlvwd/buFXTIzLhEcuLm8LFmmQ== HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 14; sdk_gphone64_x86_64 Build/UE1A.230829.036.A1)
+Host: 192.168.100.20:6969
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+
+[2024_1_12_12_21_21_976] - LOG: New request: GET / HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_21] - LOG: New request: GET /website/styles.css HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_530] - LOG: New request: GET /website/hangman.js HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: */*
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_37] - LOG: New request: GET /?type=connect&noanswer=true&clientID=23fea06d-6574-462a-93f0-a35212251a6f HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_116] - LOG: New request: GET /favicon.ico HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_809] - LOG: New request: GET /?type=login&plain=true&connectionID=7e58f487-2a54-4d51-a794-7a4cd44006bc&username=Andrispowq&password=password HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_321] - LOG: New request: GET /?type=logout&noanswer=true&sessionID=00000000-0000-0000-0000-000000000000 HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_875] - LOG: New request: GET /website/game.html HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://192.168.100.20:6969/
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_904] - LOG: New request: GET /website/game.css HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://192.168.100.20:6969/website/game.html
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_416] - LOG: New request: GET /website/game.js HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: */*
+Referer: http://192.168.100.20:6969/website/game.html
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_422] - LOG: New request: GET /website/hangman.js HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: */*
+Referer: http://192.168.100.20:6969/website/game.html
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_935] - LOG: New request: GET /?type=connect&noanswer=true&clientID=42102a1e-0e48-4355-9a68-a05efc64bd88 HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+X-Requested-With: XMLHttpRequest
+Referer: http://192.168.100.20:6969/website/game.html
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+
+[2024_1_12_12_21_21_995] - LOG: New request: GET /favicon.ico HTTP/1.1
+Host: 192.168.100.20:6969
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+Accept: image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.100.20:6969/website/game.html
+Accept-Encoding: gzip, deflate
+Accept-Language: hu,en;q=0.9,en-GB;q=0.8,en-US;q=0.7,fr;q=0.6
+
+

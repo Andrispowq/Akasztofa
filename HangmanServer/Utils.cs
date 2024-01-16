@@ -28,5 +28,22 @@ namespace Akasztofa
 
             return (headerValues, firstLine);
         }
+
+        public static string GenerateEncryptionKey()
+        {
+            string key_string = "";
+
+            long currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            int seed = (int)(currentTimeMillis % int.MaxValue);
+            Random random = new Random(seed);
+            byte[] key = new byte[128];
+            random.NextBytes(key);
+            for (int i = 0; i < key.Length; i++)
+            {
+                key_string += key[i].ToString("X2");
+            }
+
+            return key_string;
+        }
     }
 }
